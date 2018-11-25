@@ -1,0 +1,65 @@
+#intro{
+   
+    background-image: url('../img/a.jpeg');
+    height:670px;
+    background-size: cover;
+    background-attachment: fixed;
+   
+}
+#boxone{
+   
+   
+    background-size: cover;
+    /* background-color:#5C6BC0    ; */
+    /* color:white; */
+    
+}
+#boxtwo{
+    background-image: url('../img/bbb.jpeg');
+    height:500px;
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
+#boxthree{
+    
+    background-size: cover;
+    
+}
+#boxfour{
+    background-image: url('../img/ww.jpeg');
+    height:400px;
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
+body{
+    background-color:white;
+}
+.font1{
+    font-family: 'Bangers', cursive;
+}
+.font2{
+    
+font-family: 'Ultra', serif;
+}
+.font3{
+    font-family: 'Monoton', cursive;
+}
+.custom-header{
+    font-size:80px;
+
+}
+.font4{
+    font-family: 'Satisfy', cursive;
+}
+.boatreg{padding-top:50px;
+
+}
+.imgsize{
+    height:150px;
+}
+.custom_padding{
+    padding-top:50px;
+    padding-bottom: 50px;
+}
