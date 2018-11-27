@@ -7,6 +7,7 @@ use validator;
 use Calendar;
 use App\boats;
 use App\trips;
+use App\invoice;
 
 class TripController extends Controller
 {
@@ -61,6 +62,22 @@ class TripController extends Controller
     public function OngoingTrips(){
         
         $id=auth()->user()->id;
-        return $ongoing_trips=trips::where('ownerid',$id)->get();
+        $ongoing_trips=trips::where('ownerid',$id)->where('status','ongoing')->get();
+        return view('boatownerfunctions.on_reservation')->with('ongoing',$ongoing_trips);
+    }
+
+    public function Resdetails(request $request){
+      $res_id=$request->input('resid');
+       $reservations=invoice::where('reservationid',$res_id)->get();
+       $resid=invoice::where('reservationid',$res_id)->first();
+       return view('boatownerfunctions.res_details')->with('res_details',$reservations)->with('resid',$resid);
+    }
+
+    public function endtrip(request $request){
+        $res_id=$request->input('res_id');
+         $trips=trips::where('reservationid',$res_id)->first();
+        $trips->status="Ended";
+        $trips->update();
+        
     }
 }

@@ -53,3 +53,5 @@ Route::get('/getPDFcolombo', 'PDFController@getPDFcolombo');
 Route::get('/month', 'PDFController@month');
 Route::resource('/invoice', 'BookingController');
 Route::get('/ongoing_trips','TripController@OngoingTrips');
+Route::get('/res_details','TripController@Resdetails');
+Route::get('/endtrip','TripController@endtrip');
