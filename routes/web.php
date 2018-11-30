@@ -51,7 +51,15 @@ Route::get('/getPDFmirissaa', 'PDFController@getPDFmirissaa');
 Route::get('/getPDFtrinco', 'PDFController@getPDFtrinco');
 Route::get('/getPDFcolombo', 'PDFController@getPDFcolombo');
 Route::get('/month', 'PDFController@month');
-Route::resource('/invoice', 'BookingController');
+
 Route::get('/ongoing_trips','TripController@OngoingTrips');
 Route::get('/res_details','TripController@Resdetails');
 Route::get('/endtrip','TripController@endtrip');
+
+//make route to invoice
+Route::resource('/invoice', 'BookingController');
+
+
+// Route::get('/invoice', 'InvoiceController@generateinvoice');
+//  Route::get('/invoice2', 'BookingController@generateinvoice');
+

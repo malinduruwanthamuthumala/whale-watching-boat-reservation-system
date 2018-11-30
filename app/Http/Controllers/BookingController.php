@@ -9,6 +9,10 @@ use App\boats;
 use App\trips;
 use App\invoice;
 use App\pricing_details;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use PDF;
+use DB;
 
 class BookingController extends Controller
 {
@@ -71,11 +75,29 @@ class BookingController extends Controller
             $trips->availableseats=$currently_availableseats-$Noofseats;
             $trips->reservedseats=$currently_reservedseats+ $Noofseats;
             $invoice->save();
+            
             $trips->update();
-           
 
+
+
+           
+            return View('invoice2')->with('invoice',$invoice)->with('trips',$trips);
+            
+        
+       
+             
+            //return redirect('/invoicereport')->with('invoice',$invoice);
+        
             
     }
+    
+            public function generateinvoice(request $invoice){
+                return $invoice;
+                $pdf = PDF::loadView('invoice');
+                return $pdf ->stream('invoice.pdf');
+     }
+
+    
 
     /**
      * Display the specified resource.
