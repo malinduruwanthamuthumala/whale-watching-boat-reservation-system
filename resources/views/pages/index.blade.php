@@ -88,30 +88,35 @@
             <div class="row">
 
                 <div class="col-md-6">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. At fugit quos fugiat. Sit 
-                    ducimus laudantium rem culpa sint velit, asperiores explicabo, suscipit natus nulla 
-                    inventore, quaerat ipsum vel eos non.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. At fugit quos fugiat. Sit 
-                    ducimus laudantium rem culpa sint velit, asperiores explicabo, suscipit natus nulla 
+                    We are wormly welcome anyone to our Waves tourism management system. Join with us as a boat owner,
+                    and you can gain more and more profits through whale watching trips. This will be really
+                    easy for you because we are available 24X7 anywhere. 
                     <br> <br>
                     
                    
 
                 </div>
                 <div class="col-md-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
-                     explicabo veniam reprehenderit commodi maiores nesciunt consequatur fugit? Earum 
-                     excepturi reprehenderit minima! Molestiae eaque nostrum odit architecto accusantium,
-                      id labore quos!
-                      ducimus laudantium rem culpa sint velit, asperiores explicabo, suscipit natus nulla 
-                      inventore, quaerat ipsum vel eos non.
+                <!-- Login and registration buttons -->
+                    @guest
+                    <div class="row">
+                    <button class="btn btn-danger btn-lg"><a  href="{{ route('login') }}">{{ __('Login') }}</a></button>
+                            
+                    </div>
+                    <div class="row">
+                    <button class="btn btn-success btn-lg"><a href="{{ route('register') }}">{{ __('Register') }}</a></button>
+                                
+                    </div>
+                        
+                    @endguest 
                       
                 </div>
 
             </div>
-            <div class="row"><button class="btn btn-primary btn-lg">REGISTER</button>
-                <button class="btn btn-danger btn-lg">LOGIN</button>
-             </div>
+            
+            
+                
+             
         </div>
      </div>
 </div>
@@ -125,19 +130,24 @@
                     <div class="custom_padding">
                             <div class="card text-center" >
                                     <div class="view overlay zoom">
-                                            <img src="img/e.jpeg" alt="" style="height:250px;width:100% " class="zoom">
+                                            <img src="img/speedboat.jpg" alt="" style="height:250px;width:100% " class="zoom">
                                             <div class="mask flex-center waves-effect waves-light">
                                               
                                             </div>
                                           </div>
                                 
-                                <h1 class="">REGISTER YOUR WHALE WATCHING BOAT</h1>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt quam recusandae et 
-                                    corrupti architecto deserunt quae qui incidunt dicta? Deleniti, autem at? Corrupti cumque 
-                                    ducimus sint voluptate quos consequuntur minima!
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus reiciendis blanditiis unde, pariatur dolorem fuga odit sed hic architecto voluptas iste tempora. Explicabo sapiente consequuntur beatae praesentium at qui blanditiis?
-                                </p>
-                                <a href="/home" class="btn btn-primary">REGISTER</a>
+                                <h1 class="">Speed Boat Whale Tour</h1>
+                                <p>Watching tour that reduce travelling time and increases Watching time. 
+                                it's unique private tour and you can enjoy much than shared tour.</p>
+                                <p>
+                                    <li>Passenger Capacity: 5max</li>
+                                    <li>Maximum Speed:30knots</li>
+                                    <li>Tour Time:2Hours</li>
+                                    <li>Tea,Coffee,Breakfast/Water Included</li>
+                                    </ul>
+                                    </p>
+                                
+                                <a href="/home" class="btn btn-primary">SEE MORE</a>
                                       
                             </div>
                         </div>    
@@ -148,19 +158,26 @@
                     <div class="custom_padding">
                             <div class="card text-center" >
                                     <div class="view overlay zoom">
-                                            <img src="img/vv.jpg" alt="" style="height:250px;width:100% " class="zoom">
+                                            <img src="img/normalboat.jpg" alt="" style="height:250px;width:100% " class="zoom">
                                             <div class="mask flex-center waves-effect waves-light">
                                               
                                             </div>
                                           </div>
                                 
-                                <h1 class="">REGISTER YOUR VEHICAL WITH WAVES</h1>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt quam recusandae et 
-                                    corrupti architecto deserunt quae qui incidunt dicta? Deleniti, autem at? Corrupti cumque 
-                                    ducimus sint voluptate quos consequuntur minima!
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus sed repellendus velit eos modi error repellat. Adipisci beatae vero labore fuga libero dolores. Aperiam quos velit officia eum esse! Architecto?
+                                <h1 class="">Normal Boat Whale Tour</h1>
+
+                                <p>
+                                You can feel the beauty of the ocean and can observe whales/dolphins in a close view.
+                                This will good for you to spend your leisure time meaningfully.
                                 </p>
-                                <a href="/home" class="btn btn-primary">REGISTER</a>
+                                <p>
+                                <li>Passenger Capacity: 50max</li>
+                                <li>Maximum Speed:12knots</li>
+                                <li>Tour Time:5Hours</li>
+                                <li>Breakfast/Water Included</li>
+
+                                </p>
+                                <a href="/home" class="btn btn-primary">SEE MORE</a>
                                    
                             </div>
                         </div>    
@@ -175,18 +192,24 @@
                                 <div class="card text-center" >
                                     
                                     <div class="view overlay zoom">
-                                            <img src="img/ssss.jpg" class="img-fluid " alt="zoom"  style="height:250px;width:100% ">
+                                            <img src="img/luxuryboat.jpg" class="img-fluid " alt="zoom"  style="height:250px;width:100% ">
                                             <div class="mask flex-center waves-effect waves-light">
                                               
                                             </div>
                                           </div>
-                                    <h1 class="">REGISTER YOUR HOTELS  RESTAURENTS</h1>
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt quam recusandae et 
-                                        corrupti architecto deserunt quae qui incidunt dicta? Deleniti, autem at? Corrupti cumque 
-                                        ducimus sint voluptate quos consequuntur minima!
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus reiciendis blanditiis unde, pariatur dolorem fuga odit sed hic architecto voluptas iste tempora. Explicabo sapiente consequuntur beatae praesentium at qui blanditiis?
-                                    </p>
-                                    <a href="/home" class="btn btn-primary">REGISTER</a>
+                                    <h1 class="">Luxury Family Whale Tour</h1>
+                                    <p>You can spend really good time with family since this is a family based tour.
+                                    In this boat sofa,a washroom, bed room with two beds are available only for you.
+                                
+                                </p>
+                                <p>
+                                <li>Passenger Capacity: 5max</li>
+                                <li>Maximum Speed:20knots</li>
+                                <li>Tour Time:10Hours</li>
+                                <li>Breakfast,Lunch,Dinner/Water Included</li>
+
+                                </p>
+                                    <a href="/home" class="btn btn-primary">SEE MORE</a>
                                           
                                 </div>
                             </div>    
@@ -198,18 +221,22 @@
                                 <div class="card text-center" >
                                     
                                     <div class="view overlay zoom">
-                                            <img src="img/sss.jpg" alt="" style="height:250px;width:100% " class="zoom">
+                                            <img src="img/smallboat.jpg" alt="" style="height:250px;width:100% " class="zoom">
                                             <div class="mask flex-center waves-effect waves-light">
                                               
                                             </div>
                                           </div>
-                                    <h1 class="">JOIN WITH US AS A PHOTOGRAPHER</h1>
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt quam recusandae et 
-                                        corrupti architecto deserunt quae qui incidunt dicta? Deleniti, autem at? Corrupti cumque 
-                                        ducimus sint voluptate quos consequuntur minima!
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus sed repellendus velit eos modi error repellat. Adipisci beatae vero labore fuga libero dolores. Aperiam quos velit officia eum esse! Architecto?
+                                    <h1 class="">Small Boat Whale Tour</h1>
+                                    <p>Watching tour that reduce travelling time and increases Watching time. 
+                                it's unique private tour and you can enjoy much than shared tour.</p>
+                                <p>
+                                    <p>
+                                    <li>Passenger Capacity: 3max</li>
+                                    <li>Maximum Speed:25knots</li>
+                                    <li>Tour Time:3Hours</li>
+                                    <li>Breakfast/Water Included</li>
                                     </p>
-                                      <button class="btn btn-primary">REGISTER</button>
+                                      <button class="btn btn-primary">SEE MORE</button>
                                        
                                 </div>
                             </div>    
