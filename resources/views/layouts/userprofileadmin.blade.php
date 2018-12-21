@@ -59,21 +59,14 @@
    <div class="col-md-8">
      <div>
         @yield('content')
+        
      </div>
    </div>
 
-       {{--  --}}
-            {{-- included the error messages --}}
-        @include('include.messages')
-        
-        {{-- content of the web page --}}
+       
       
         <div style="margin-bottom:0px">
-        {{-- footer of the page --}}
-        {{-- <div class="container-fluid"style="position:absolute;bottom:0"> --}}
-              
-        {{-- </div>
-         --}}
+      
         </div>
        
     </div>

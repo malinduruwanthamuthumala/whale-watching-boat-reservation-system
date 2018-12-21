@@ -48,7 +48,7 @@ class BookingController extends Controller
             'telephone'=>'required',
             'email'=>'required',
         ]);
-
+            $pricing=pricing_details::all()->first();
             $invoice = new invoice;
             $invoice->boatid=$request->input('boat_id');
             $invoice->boatownerid=$request->input('owner_id');
@@ -61,8 +61,15 @@ class BookingController extends Controller
             $invoice->NOofseats=$request->input('seats');
             $Noofseats=$request->input('seats');
             $reservedseats=$request->input('seats');
-            $invoice->payementstatus='not-paid';	
-            $invoice->price='200';
+            $invoice->payementstatus='paid';
+            $priceperhead=$pricing->price;	
+            $discount=$pricing->discount;
+            
+
+            $initialprice=$priceperhead*$Noofseats;
+            $discountedprice=$initialprice*$discount;
+            $finalprice=$initialprice-$discountedprice;
+            $invoice->price=$finalprice;
             $invoice->telephone=$request->input('telephone');
             $trips=trips::where('reservationid', $resid)->first();
 
@@ -70,10 +77,11 @@ class BookingController extends Controller
             $currently_reservedseats=$trips->reservedseats;
             $trips->availableseats=$currently_availableseats-$Noofseats;
             $trips->reservedseats=$currently_reservedseats+ $Noofseats;
+            
             $invoice->save();
             $trips->update();
            
-
+            
             
     }
 

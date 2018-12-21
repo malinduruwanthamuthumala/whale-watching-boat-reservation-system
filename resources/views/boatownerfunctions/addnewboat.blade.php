@@ -43,9 +43,9 @@
                     {{-- boat type --}}
                     <select class="mdb-select md-form form-control" name="btype">
                         <option value="" disabled selected>Choose your boat type</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <option value="Normal">Normal Boats</option>
+                        <option value="family">family boat</option>
+                        <option value="luxury">luxury boat</option>
                     </select>
 
                     {{-- location --}}
@@ -53,7 +53,7 @@
                         <option value="" disabled selected>Choose your location</option>
                         <option value="mirissa">mirissa</option>
                         <option value="trincomalee">Trincomalee</option>
-                        <option value="colombo">colombo</option>
+                        <option value="kalpitiya">colombo</option>
                     </select>
                 
                     

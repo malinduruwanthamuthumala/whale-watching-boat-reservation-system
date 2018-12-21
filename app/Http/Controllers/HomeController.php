@@ -25,36 +25,7 @@ class HomeController extends Controller
       
         $usertype=auth()->user()->usertype;
         
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        if( $usertype=='boat owner'){
+    if( $usertype=='boat owner'){
             $id=auth()->user()->id;
             $fname=auth()->user()->fname;
             $lname=auth()->user()->lname;

@@ -41,6 +41,8 @@ class TripController extends Controller
             $trip->availableseats=$request->input('availableseats');
             $trip->reservedseats='0';
             $trip->boatid=$request->input('selectboat');
+            $ownerid=auth()->user()->id;
+            $trip->ownerid=$ownerid;
             $id=$request->input('selectboat');
             $name = Boats::where('boatid',$id)->first();
             
@@ -69,8 +71,8 @@ class TripController extends Controller
     public function Resdetails(request $request){
       $res_id=$request->input('resid');
        $reservations=invoice::where('reservationid',$res_id)->get();
-       $resid=invoice::where('reservationid',$res_id)->first();
-       return view('boatownerfunctions.res_details')->with('res_details',$reservations)->with('resid',$resid);
+      
+       return view('boatownerfunctions.res_details')->with('res_details',$reservations)->with('resid',$res_id);
     }
 
     public function endtrip(request $request){
@@ -78,6 +80,7 @@ class TripController extends Controller
          $trips=trips::where('reservationid',$res_id)->first();
         $trips->status="Ended";
         $trips->update();
+        return redirect('/ongoing_trips')->with('success','Trip succesfully ended');
         
     }
 }

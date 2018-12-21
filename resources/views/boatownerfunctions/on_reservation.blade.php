@@ -7,7 +7,9 @@
        
 </div>
 <div style="margin-top:100px;margin-left:-150px">
-
+<div>
+              @include('include.messages')
+</div>
        <table class="table">
               <thead class="black white-text">
                 <tr>

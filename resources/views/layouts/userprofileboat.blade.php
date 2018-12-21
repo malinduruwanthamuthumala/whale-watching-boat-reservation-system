@@ -46,7 +46,7 @@
                 <li><i class="fa fa-circle"></i><a href="deleteboat">Delete Boat</a></li>
                 <li><i class="fa fa-crosshairs"></i><a href="#">Change Password</a></li>
                 <li><i class="fa fa-deaf"></i><a href="#">View Payement Details</a></li>
-                <li><i class="fa fa-desktop"></i><a href="#">Deactivate Account</a></li>
+                <li><i class="fa fa-desktop"></i><a href="#">Generate reports</a></li>
                
             </ul>
         </aside>
@@ -59,7 +59,7 @@
      <div>
         @yield('content')
         <div style="margin-bottom:-20px" class="col-md-6">
-                @include('include.messages')
+               
         </div>
      </div>
    </div>

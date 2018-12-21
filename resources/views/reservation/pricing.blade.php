@@ -117,40 +117,81 @@
 						
 						{{-- hidden input fields --}}
 						
-						<input type="" value="{{$reservationdetails->ownerid}}" name="owner_id">
+						<input type="hidden" value="{{$reservationdetails->ownerid}}" name="owner_id">
 						<input type="hidden" value="{{$reservationdetails->start_date}}" name="start_date">
 						<input type="hidden" value="{{$reservationdetails->boatid}}" name="boat_id">
 						<input type="hidden" value="{{$reservationdetails->availableseats}}" name="seatsavailable" id="available_seats">
 						<input type="hidden" value="{{$reservationdetails->reservationid}}" name="res_id">
 						
-							<input type="hidden" value="{{$pricing->price_per_head}}" name="priceperhead" id="priceperhead">
+							<input type="hidden" value="{{$pricing->price}}" name="priceperhead" id="priceperhead">
 						
 					
 								   
 						{{-- end hidden input fields --}}
-						<div class="col-md-6 ">
-							<input type="submit" class="btn btn-primary btn-md" value="ADD TRIP TO THE CALENDER">
-						</div>
+						
 			   </div>
-			</form>			
+					
 	</div>
 	<div class="col-md-3">
 			<div class="card">
 
-					<!-- Card image -->
-					<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
-				  
-					<!-- Card content -->
+				
 					<div class="card-body">
 				  
 					  <!-- Title -->
-					  <h3>price you have to pay is </h3>
-					  <!-- Text -->
-					  <p class="card-text" id="price">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					  <!-- Button -->
-					  <h3 ></h3>
-					  <a href="#" class="btn btn-primary" id="button">Button</a>
+					<h3>price per head: $ {{$pricing->price}}.00</h3>
+					  <p><b>Number of seats: <span id="numseats"></span></b> </p>
+					<p><b>Discounts:{{$pricing->discount}}%</b></p>
+					  <p><b>TOTAL :<span id="price"></span></b><p>
+					 
+
+						<ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" data-toggle="pill" href="#nav-tab-card">
+								<i class="fa fa-credit-card"></i> Credit Card</a></li>
+							
+						</ul>
+
+							
+						<div class="form-group">
+							<label for="username">Full name (on the card)</label>
+							<input type="text" class="form-control" name="username" placeholder="" required="">
+						</div> 
 				  
+						<div class="form-group">
+							<label for="cardNumber">Card number</label>
+							<div class="input-group">
+								<input type="text" class="form-control" name="cardNumber" placeholder="">
+								<div class="input-group-append">
+									<span class="input-group-text text-muted">
+										<i class="fab fa-cc-visa"></i>   <i class="fab fa-cc-amex"></i>   
+										<i class="fab fa-cc-mastercard"></i> 
+									</span>
+								</div>
+							</div>
+						</div> 
+
+						<div class="row">
+							<div class="col-sm-8">
+								<div class="form-group">
+									<label><span class="hidden-xs">Expiration</span> </label>
+									<div class="input-group">
+										<input type="number" class="form-control" placeholder="MM" name="">
+										<input type="number" class="form-control" placeholder="YY" name="">
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label data-toggle="tooltip" title="" data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label>
+									<input type="number" class="form-control" required="">
+								</div> <!-- form-group.// -->
+							</div>
+						</div>
+
+						<div class="col-md-6 ">
+							<input type="submit" class="btn btn-danger btn-md" value="CONFIRM RESERVATION">
+						</div>
 					</div>
 				  
 				  </div>
@@ -162,6 +203,10 @@
   
 					
 </div>
+								
+</form>								
+							
+					
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -182,6 +227,7 @@ $(document).ready(function(){
 			
 		 	var price=seats*priceperhead;
 			$("#price").text('$'+ price );
+			$('#numseats').text(seats);
 		 }
 		
     });

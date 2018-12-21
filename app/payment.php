@@ -4,11 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class pricing_details extends Model
+class payment extends Model
 {
      //table name
-     protected $table  = 'pricing-details';
+     protected $table  = 'payments';
      //primary key
-     public $primaryKey= 'pricing_id';
+     public $primaryKey= 'payementid';
+     //time stamp
      public $timestamps= 'true';
 }

@@ -19,7 +19,7 @@
         <div class="col-md-offset-4">
             
             <form action="/endtrip">
-            <input type="hidden" value="{{$resid->reservationid}}" name="res_id">
+            <input type="hidden" value="{{$resid}}" name="res_id">
                 <input type="submit" class="btn btn-success" value="End Trip" >
             </form>
           </div>

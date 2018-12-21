@@ -28,49 +28,15 @@
 </div>
 
 
-<div id="boxone">
+<div id="boxone" style="background-image: url('img/m6.jpg');height:800px">
     <div class="container">
         <div class="row">
      
-                <div class="col-md-4">
-                        <div class="custom_padding">
-                            <div class=" text-center" >
-                                <img src="img/sv.png" alt="" style="height:200px;width:100% " class="">
-                                <h1 class="">Book your hotel Room</h1>
-                                <p>Save time and money on your accommodation search with millions of ... You are now online ...
-                                     Find your ideal hotel and compare prices from different websites ... 
-                                    From budget hostels to luxury suites, trivago makes it easy to book online.</p>
-                                
-                            </div>
-                        </div>    
-                   </div>    
+               
 
-                   <div class="col-md-4">
-                        <div class="custom_padding">
-                            <div class=" text-center" >
-                                <img src="img/ffs.jpg" alt="" style="height:200px;width:100% " class="">
-                                <h1 class="">Reserve your ride</h1>
-                                <br><br>
-                                <p>Each season brings a whole different array of scenery and species 
-                                    to the marsh – it’s not just a boat ride. Call and reserve your
-                                     spot on the boat now and get ready to experience the largest mamals marsh in SRI LANKA.</p>
-                               
-                            </div>
-                        </div>    
-                   </div>    
 
                    
-           <div class="col-md-4">
-                <div class="custom_padding">
-                    <div class="text-center" >
-                        <img src="img/dv.jpg" alt="" style="height:200px;width:100% " class="">
-                        <h1 class="">Arrange your transport</h1>
-                        <p>Reserve your transport to Hotel. Let our concierge team arrange your transportation and reach our hotel with convenience.
-                 </p>
-                        
-                    </div>
-                </div>    
-           </div>    
+          
 
        
         </div>
@@ -78,7 +44,7 @@
 </div>
 
 
-<div id="boxtwo" class="view">
+<div id="boxtwo" class="view" style="height:800px">
      <div class="mask flex-center rgba-black-strong text-white">
         <div class="container">
             <div class="row">
@@ -118,7 +84,7 @@
 
 
 
-<div id="boxthree">
+<div id="boxthree" >
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -364,5 +330,7 @@
         .customimg{
            
         }
-        
+    .boxone{
+        height:400px;
+        }    
 </style>
