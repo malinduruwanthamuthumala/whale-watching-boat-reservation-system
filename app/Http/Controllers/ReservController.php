@@ -13,7 +13,8 @@ class ReservController extends Controller
     //
     public function index(){
         $events = [];
-        $data = trips::all();
+        $sheets=0;
+        $data = trips::where('availableseats','>', $sheets)->get();
         if($data->count()) {
             foreach ($data as $key => $value) {
                 $events[] = Calendar::event(

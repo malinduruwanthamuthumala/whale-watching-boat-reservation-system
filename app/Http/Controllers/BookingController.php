@@ -82,8 +82,13 @@ class BookingController extends Controller
             $trips->update();
            
             
-            
+            return View('invoice2')->with('invoice',$invoice)->with('trips',$trips);  
     }
+    public function generateinvoice(request $invoice){
+        return $invoice;
+        $pdf = PDF::loadView('invoice');
+        return $pdf ->stream('invoice.pdf');
+}
 
     /**
      * Display the specified resource.

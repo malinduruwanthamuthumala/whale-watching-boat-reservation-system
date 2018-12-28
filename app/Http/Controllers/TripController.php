@@ -8,6 +8,7 @@ use Calendar;
 use App\boats;
 use App\trips;
 use App\invoice;
+use App\payment;
 
 class TripController extends Controller
 {
@@ -72,7 +73,8 @@ class TripController extends Controller
         $res_id=$request->input('resid');
         $reservations=invoice::where('reservationid',$res_id)->get();
        $price=invoice::where('reservationid',$res_id)->pluck('price')->toArray();
-       $TOTAL=0;
+       
+        $TOTAL=0;
        foreach($price as $pricing){
         $TOTAL=$TOTAL+ $pricing;
        }
@@ -81,13 +83,28 @@ class TripController extends Controller
     }
 
     public function endtrip(request $request){
-        $res_id=$request->input('res_id');
+       $res_id=$request->input('res_id');
         $trips=trips::where('reservationid',$res_id)->first();
         $trips->status="Ended";
         $trips->update();
-
-
+        $ownerid=$trips->ownerid;
+        $account_number=Boats::where('ownerid',$ownerid)->first();
+        $price=invoice::where('reservationid',$res_id)->pluck('price')->toArray();
+        $TOTAL=0;
+        foreach($price as $pricing){
+         $TOTAL=$TOTAL+ $pricing;
+        }
+        $payement_amount=($TOTAL*88)/100;
+        $revenue_amount=($TOTAL*12)/100;
+        $payment=new payment;
         
+        $payment->res_id=$res_id;
+        $payment->acc_no=$account_number->bankacountnumber;
+        $payment->boatowner_id=$trips->ownerid;
+        $payment->status="not transfered";
+        $payment->payement_amount=$payement_amount;
+        $payment->revenue=$revenue_amount;
+        $payment->save();
         return redirect('/ongoing_trips')->with('success','Trip succesfully ended');
 
 
@@ -95,7 +112,5 @@ class TripController extends Controller
         
     }
 
-    public function payements(){
-
-    }
+    
 }
