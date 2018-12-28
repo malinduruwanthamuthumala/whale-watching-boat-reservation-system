@@ -69,18 +69,33 @@ class TripController extends Controller
     }
 
     public function Resdetails(request $request){
-      $res_id=$request->input('resid');
-       $reservations=invoice::where('reservationid',$res_id)->get();
-      
-       return view('boatownerfunctions.res_details')->with('res_details',$reservations)->with('resid',$res_id);
+        $res_id=$request->input('resid');
+        $reservations=invoice::where('reservationid',$res_id)->get();
+       $price=invoice::where('reservationid',$res_id)->pluck('price')->toArray();
+       $TOTAL=0;
+       foreach($price as $pricing){
+        $TOTAL=$TOTAL+ $pricing;
+       }
+       
+       return view('boatownerfunctions.res_details')->with('res_details',$reservations)->with('resid',$res_id)->with('total_price',$TOTAL);
     }
 
     public function endtrip(request $request){
         $res_id=$request->input('res_id');
-         $trips=trips::where('reservationid',$res_id)->first();
+        $trips=trips::where('reservationid',$res_id)->first();
         $trips->status="Ended";
         $trips->update();
-        return redirect('/ongoing_trips')->with('success','Trip succesfully ended');
+
+
         
+        return redirect('/ongoing_trips')->with('success','Trip succesfully ended');
+
+
+
+        
+    }
+
+    public function payements(){
+
     }
 }

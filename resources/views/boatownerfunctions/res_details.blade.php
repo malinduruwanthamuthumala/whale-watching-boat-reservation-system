@@ -13,8 +13,9 @@
       <p class="card-text">End the trip to transfer the money for the account</p>
       <!-- Button -->
       <div class="row">
+        
           <div class="col-md-8 card" style="padding:10px">
-              <h5>Total Earnings :</h5>
+          <h5>Total Earnings :$ {{$total_price}}</h5>
           </div>
         <div class="col-md-offset-4">
             
@@ -60,10 +61,14 @@
                          <td>{{$res_details->telephone}}</td>
                          
                         <td>{{$res_details->payementstatus}}</td>
-                         <td></td>
+                         <td>{{$res_details->price}}</td>
+
+                      
                          </tr>
+                      
                   @endforeach
            </tbody>
+          
          </table>
          
         
