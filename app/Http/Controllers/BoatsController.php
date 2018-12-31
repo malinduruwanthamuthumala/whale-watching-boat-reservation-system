@@ -152,7 +152,8 @@ class BoatsController extends Controller
         $fname=auth()->user()->fname;
         $lname=auth()->user()->lname;
         $email=auth()->user()->email;
-        $boats = Boats::where('ownerid',$id)->get();
+        $boats = Boats::where('ownerid',$id)->where('status','confirmed')->get();
+        
         return view('boatownerfunctions.boatdelete')->with('boats',$boats);
 
     }
@@ -165,7 +166,8 @@ class BoatsController extends Controller
     public function destroy($id)
     {
        $boats= boats::find($id);
-       $boats->delete();
+       $boats->status="deleted";
+       $boats->update();
        return redirect('/deleteboat')->with('success','Boat removed');
     }
 }

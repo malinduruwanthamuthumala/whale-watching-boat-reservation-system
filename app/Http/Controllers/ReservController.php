@@ -14,7 +14,9 @@ class ReservController extends Controller
     public function index(){
         $events = [];
         $sheets=0;
-        $data = trips::where('availableseats','>', $sheets)->get();
+        $status="ongoing";
+        
+        $data=trips::where('status', $status)->where('availableseats','>', $sheets)->get();
         if($data->count()) {
             foreach ($data as $key => $value) {
                 $events[] = Calendar::event(
@@ -49,7 +51,7 @@ class ReservController extends Controller
         if($location=='all'){
             $data=trips::where('availableseats','>=', $sheets)->get();
         }else{
-            $data= trips::where('location',$location )->where('availableseats','>=', $sheets)->get();
+            $data= trips::where('location',$location )->where('availableseats','>=', $sheets)->where('status','==','ongoing')->get();
         }
        
         if($data->count()) {

@@ -15,7 +15,7 @@ class TripController extends Controller
     public function index(){
         $id=auth()->user()->id;
         
-        $boats = Boats::where('ownerid',$id)->get();
+        $boats = Boats::where('ownerid',$id)->where('status','confirmed')->get();
         return view('boatownerfunctions.startnewtrip')->with('boats', $boats);
     }
 
@@ -97,7 +97,7 @@ class TripController extends Controller
         $payement_amount=($TOTAL*88)/100;
         $revenue_amount=($TOTAL*12)/100;
         $payment=new payment;
-        
+        $payment->Enddate=$trips->end_date;
         $payment->res_id=$res_id;
         $payment->acc_no=$account_number->bankacountnumber;
         $payment->boatowner_id=$trips->ownerid;
@@ -112,5 +112,25 @@ class TripController extends Controller
         
     }
 
-    
+    public function payement_details(){
+        $id=auth()->user()->id;
+       $payement_details=payment::where('boatowner_id',$id)->where('status','not transfered')->get();
+       return view('boatownerfunctions.payement_details')->with('payement_details',$payement_details);
+    }
+
+    public function payement_history(request $request){
+        $payementid=$request->input('payid');
+        
+       $payement=payment::where('payementid',$payementid)->first();
+        $payement->status="transfered";
+        $payement->update();
+        return redirect('/payement_details')->with('success','Trip succesfully ended');
+
+    }
+
+    public function payhistory(){
+        $id=auth()->user()->id;
+        $payement=payment::where('boatowner_id',$id)->where('status','transfered')->get();
+        return view('boatownerfunctions.paymenthistory')->with('payement',$payement);
+    }
 }
