@@ -39,10 +39,10 @@
     <div class="wrapper">
         <aside class="main_sidebar">
             <ul style="margin-top:100px">
-                <li><i class="fa fa-arrows"></i><a href="#">Banned Boat</a></li>
+                <li><i class="fa fa-arrows"></i><a href="/confirmboat">Confirm Boat Registration</a></li>
                 <li><i class="fa fa-battery-2"></i><a href="#">Set prices</a></li>
                 <li class=""><i class="fa fa-bell"></i><a href="#">Make offers</a></li>
-                <li><i class="fa fa-bicycle"></i><a href="#">Adding a seating plan</a></li>
+                
                 <li><i class="fa fa-circle"></i><a href="#">payement info</a></li>
                 <li><i class="fa fa-crosshairs"></i><a href="#">Transaction history</a></li>
                 <li><i class="fa fa-deaf"></i><a href="#">Banking details</a></li>

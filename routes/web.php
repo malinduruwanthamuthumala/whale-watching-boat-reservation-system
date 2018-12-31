@@ -55,3 +55,15 @@ Route::resource('/invoice', 'BookingController');
 Route::get('/ongoing_trips','TripController@OngoingTrips');
 Route::get('/res_details','TripController@Resdetails');
 Route::get('/endtrip','TripController@endtrip');
+Route::get('/payement_details','TripController@payement_details');
+Route::get('/payement_history','TripController@payement_history');
+Route::get('/payhistory','TripController@payhistory');
+
+
+Route::get('/reportsboat','ReportboatownerController@index');
+Route::get('/monthearnBoat','ReportboatownerController@monthreportBoat');
+
+Route::get('/confirmboat','AdminController@confirmboat');
+Route::get('/moredetailsboats','AdminController@getmoredetails');
+
+Route::get('/setconfirmation','AdminController@setconfirmation');
