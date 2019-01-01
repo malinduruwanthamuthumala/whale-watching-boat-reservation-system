@@ -30,7 +30,7 @@
         <input type="hidden"  id="sep" value="{{$septotal}}">
         <input type="hidden"  id="oct" value="{{$octtotal}}">
         <input type="hidden"  id="nov"value="{{$novtotal}}">
-        <input type="hidden" id="dec" value={{$dectotal}}> 
+        <input type="hidden" id="dec" value="{{$dectotal}}""> 
 <script>
 window.onload = function () {
 

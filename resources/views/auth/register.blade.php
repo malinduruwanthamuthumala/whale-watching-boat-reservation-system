@@ -66,7 +66,6 @@
                                 <select   class="form-control" name="usertype" style="width:200px; height:30px">
                                 
                                 <option value="boat owner"  class="input">boat owner</option>
-                                <option value="admin"  class="input" >admin</option>
                                 
                                 
                                 

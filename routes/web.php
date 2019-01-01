@@ -67,3 +67,14 @@ Route::get('/confirmboat','AdminController@confirmboat');
 Route::get('/moredetailsboats','AdminController@getmoredetails');
 
 Route::get('/setconfirmation','AdminController@setconfirmation');
+Route::get('/set_price','AdminController@set_price');
+Route::get('/update_pricing','AdminController@update_pricing');
+Route::get('/update_discounts','AdminController@update_discounts');
+Route::get('/admin_payement_info','AdminController@admin_payement_info');
+Route::get('/searchpayement','AdminController@searchpayement');
+Route::get('/payinfo','AdminController@payinfo');
+Route::get('/ongoing_reserve_admin','AdminController@ongoing_reserve_admin'); 
+Route::get('/search','Admincontroller@search');
+
+Route::get('/live_search', 'AdminController@index');
+Route::get('/live_search/action', 'AdminController@action')->name('live_search.action');
