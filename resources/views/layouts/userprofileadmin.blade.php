@@ -48,7 +48,11 @@
                 <li><i class="fa fa-deaf"></i><a href="/ongoing_reserve_admin">View Ongoing Reservations</a></li>
                 <li><i class="fa fa-desktop"></i><a href="/live_search">view boats details</a></li>
                 <li><i class="fa fa-desktop"></i><a href="/reports">Generate Reports</a></li>
+                <li><i class="fa fa-desktop"></i><a href="/reports_annual">Generate cashflow Reports </a></li>
+                <li><i class="fa fa-desktop"></i><a href="/reports_revenue_annual">Generate revenue Reports </a></li>
                
+                
+                
             </ul>
         </aside>
         

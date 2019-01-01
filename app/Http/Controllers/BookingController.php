@@ -73,7 +73,7 @@ class BookingController extends Controller
                 $priceperhead=$pricing->price; 
                 $discount=$pricing->discount;
                 $initialprice=$priceperhead*$Noofseats;
-                $discountedprice=$initialprice*$discount;
+                $discountedprice=$initialprice*($discount/100);
                 $finalprice=$initialprice-$discountedprice;
             }
             elseif($boattype=="family"){
@@ -81,16 +81,16 @@ class BookingController extends Controller
                 $priceperhead=$pricing->price; 
                $discount=$pricing->discount;
                $initialprice=$priceperhead*$Noofseats;
-                $discountedprice=$initialprice*$discount;
+                $discountedprice=$initialprice*($discount/100);
                 $finalprice=$initialprice-$discountedprice;
             }
-            elseif($boattype=="normal"){
+            elseif($boattype=="Normal"){
                 $pricing=pricing_details::where('pricing_plan','normal')->first(); 
                 $priceperhead=$pricing->price; 
-                $discount=$pricing->discount;
+                 $discount=$pricing->discount;
                 $initialprice=$priceperhead*$Noofseats;
-                $discountedprice=$initialprice*$discount;
-                $finalprice=$initialprice-$discountedprice;
+                $discountedprice=$initialprice*($discount/100);
+                 $finalprice=$initialprice-$discountedprice;
             }
             
             // $initialprice=$priceperhead*$Noofseats;

@@ -75,6 +75,14 @@ Route::get('/searchpayement','AdminController@searchpayement');
 Route::get('/payinfo','AdminController@payinfo');
 Route::get('/ongoing_reserve_admin','AdminController@ongoing_reserve_admin'); 
 Route::get('/search','Admincontroller@search');
-
+Route::get('/earning_reports_annual','Admincontroller@earning_reports_annual');
 Route::get('/live_search', 'AdminController@index');
 Route::get('/live_search/action', 'AdminController@action')->name('live_search.action');
+Route::get('/reports_annual',function(){
+    return view('adminfunctions.reports_annual');
+}); 
+Route::get('/reports_revenue_annual',function(){
+    return view('adminfunctions.reports_annual_revenue');
+}); 
+Route::get('/earning_reports_revenue','Admincontroller@earning_reports_revenue');
+
