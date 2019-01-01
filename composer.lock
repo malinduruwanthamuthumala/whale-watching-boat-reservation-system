@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e4152c828067b49c839e8ce7fafd2bf",
+    "content-hash": "6ceacbbb0b3ba8ea00512502b92fb862",
     "packages": [
         {
             "name": "balping/json-raw-encoder",
@@ -2044,6 +2044,42 @@
                 "stylesheet"
             ],
             "time": "2016-07-19T19:14:21+00:00"
+        },
+        {
+            "name": "senemoglu/currency",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/blueskan/Laravel-5-Currency-Converter.git",
+                "reference": "6271b6b86ec26f107b74df8055ab1b534aabd48c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blueskan/Laravel-5-Currency-Converter/zipball/6271b6b86ec26f107b74df8055ab1b534aabd48c",
+                "reference": "6271b6b86ec26f107b74df8055ab1b534aabd48c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.x",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Senemoglu\\Currency\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Batikan Senemoglu",
+                    "email": "batikansenemoglu@gmail.com"
+                }
+            ],
+            "time": "2016-07-11T12:44:17+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4881,7 +4917,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "senemoglu/currency": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -51,6 +51,7 @@ class BookingController extends Controller
             $pricing=pricing_details::all()->first();
             $invoice = new invoice;
             $invoice->boatid=$request->input('boat_id');
+            $id=$request->input('boat_id');
             $invoice->boatownerid=$request->input('owner_id');
             $invoice->reservationid=$request->input('res_id');
             $resid=$request->input('res_id');
@@ -62,13 +63,40 @@ class BookingController extends Controller
             $Noofseats=$request->input('seats');
             $reservedseats=$request->input('seats');
             $invoice->payementstatus='paid';
-            $priceperhead=$pricing->price;	
+            // $priceperhead=$pricing->price;	
             $discount=$pricing->discount;
-            
+            $boatdetails=boats::where('boatid',$id)->first();
+            $boattype=$boatdetails->boattype;
 
-            $initialprice=$priceperhead*$Noofseats;
-            $discountedprice=$initialprice*$discount;
-            $finalprice=$initialprice-$discountedprice;
+            if($boattype=="luxury"){
+                $pricing=pricing_details::where('pricing_plan','luxury')->first();
+                $priceperhead=$pricing->price; 
+                $discount=$pricing->discount;
+                $initialprice=$priceperhead*$Noofseats;
+                $discountedprice=$initialprice*$discount;
+                $finalprice=$initialprice-$discountedprice;
+            }
+            elseif($boattype=="family"){
+               $pricing=pricing_details::where('pricing_plan','family')->first(); 
+                $priceperhead=$pricing->price; 
+               $discount=$pricing->discount;
+               $initialprice=$priceperhead*$Noofseats;
+                $discountedprice=$initialprice*$discount;
+                $finalprice=$initialprice-$discountedprice;
+            }
+            elseif($boattype=="normal"){
+                $pricing=pricing_details::where('pricing_plan','normal')->first(); 
+                $priceperhead=$pricing->price; 
+                $discount=$pricing->discount;
+                $initialprice=$priceperhead*$Noofseats;
+                $discountedprice=$initialprice*$discount;
+                $finalprice=$initialprice-$discountedprice;
+            }
+            
+            // $initialprice=$priceperhead*$Noofseats;
+            // $discountedprice=$initialprice*$discount;
+            // $finalprice=$initialprice-$discountedprice;
+            $finalprice;
             $invoice->price=$finalprice;
             $invoice->telephone=$request->input('telephone');
             $trips=trips::where('reservationid', $resid)->first();

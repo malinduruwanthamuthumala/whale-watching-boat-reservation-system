@@ -147,6 +147,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+
     
         /*
          * Package Service Providers...
@@ -168,7 +169,7 @@ return [
         *--------Generate Data To PDF----------
         */
         Barryvdh\DomPDF\serviceProvider::class,
-
+        Senemoglu\Currency\CurrencyServiceProvider::class,
     ],
 
     /*
@@ -225,6 +226,7 @@ return [
         'ExcelReport' => Jimmyjs\ReportGenerator\Facades\ExcelReportFacade::class,
         'CSVReport'   => Jimmyjs\ReportGenerator\Facades\CSVReportFacade::class,
         'PDF'         => Barryvdh\DomPDF\Facades::class,
+        'Currency' => Senemoglu\Currency\Facades\Converter::class,
 
     ],
 
