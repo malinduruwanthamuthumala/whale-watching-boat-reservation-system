@@ -40,18 +40,19 @@ class ReservController extends Controller
     public function selectlocation(Request $request){
        
         $this->validate($request,[
-            
+            'btype'=>'required',
             'location'=>'required',
             'seats'=>'required',
         ]); 
-      
+        $status="ongoing";
+        $type=$request->input('btype');
         $sheets=$request->input('seats');
-      $location=$request->input('location');
+        $location=$request->input('location');
         $events = [];
         if($location=='all'){
-            $data=trips::where('availableseats','>=', $sheets)->get();
+            $data=trips::where('availableseats','>=', $sheets)->where('status', $status)->where('boattype',$type)->get();
         }else{
-            $data= trips::where('location',$location )->where('availableseats','>=', $sheets)->where('status','==','ongoing')->get();
+            $data= trips::where('location',$location )->where('availableseats','>=', $sheets)->where('status', $status)->where('boattype',$type)->get();
         }
        
         if($data->count()) {

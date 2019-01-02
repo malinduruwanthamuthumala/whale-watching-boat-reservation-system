@@ -34,18 +34,18 @@
 <script>
 window.onload = function () {
 
-var jan=parseInt(document.getElementById("jan").value);  
-var feb=parseInt(document.getElementById("feb").value);
-var march=parseInt(document.getElementById("mar").value);
-var apr=parseInt(document.getElementById("apr").value);
-var may=parseInt(document.getElementById("may").value);
-var jun=parseInt(document.getElementById("jun").value);
-var jul=parseInt(document.getElementById("jul").value);
-var aug=parseInt(document.getElementById("aug").value);
-var sep=parseInt(document.getElementById("sep").value);
-var oct=parseInt(document.getElementById("oct").value);
-var nov=parseInt(document.getElementById("nov").value);
-var dec=parseInt(document.getElementById("dec").value);
+var jan=parseFloat(document.getElementById("jan").value);  
+var feb=parseFloat(document.getElementById("feb").value);
+var march=parseFloat(document.getElementById("mar").value);
+var apr=parseFloat(document.getElementById("apr").value);
+var may=parseFloat(document.getElementById("may").value);
+var jun=parseFloat(document.getElementById("jun").value);
+var jul=parseFloat(document.getElementById("jul").value);
+var aug=parseFloat(document.getElementById("aug").value);
+var sep=parseFloat(document.getElementById("sep").value);
+var oct=parseFloat(document.getElementById("oct").value);
+var nov=parseFloat(document.getElementById("nov").value);
+var dec=parseFloat(document.getElementById("dec").value);
 
 
 // var march=;

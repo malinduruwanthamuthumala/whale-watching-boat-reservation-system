@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Download Your Monthly Report</title>
-    
-</head>
-<body>
+@extends('layouts.userprofileadmin')
+@section('content')
+<title>Download Your Monthly Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<div style="margin-top:100px">
 
-<h3>Boattrips Information</h3>
+    <h3>Boattrips Information</h3>
+<a href="getPDFtrinco" class="btn btn-success" >GET PDF</a>
 <h2>Royal tours</h2>
     <table id="boattrips">
 
@@ -35,8 +34,8 @@
     </table> 
 
 
-</body>
-</html>
+
+
 
 <style type="text/css">
 
@@ -72,3 +71,8 @@
     }
 
     </style>
+
+</div>
+
+@endsection
+   

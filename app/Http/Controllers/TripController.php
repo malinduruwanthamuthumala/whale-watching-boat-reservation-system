@@ -46,7 +46,8 @@ class TripController extends Controller
             $trip->ownerid=$ownerid;
             $id=$request->input('selectboat');
             $name = Boats::where('boatid',$id)->first();
-            
+            $type=Boats::where('boatid',$id)->first();
+            $trip->boattype=$type->boattype;
            
             $trip->boatname= $name->name;
             $trip->save();

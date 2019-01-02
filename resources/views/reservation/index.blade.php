@@ -144,16 +144,33 @@
 							<label for="seats">Number of seats</label>
 							<div>
 							
-								<input type="text" name="seats" class="form-control">
+								<input type="text" name="seats" class="form-control" id="seats">
 								{!! $errors->first('seats','<p class="alert alert-danger">:message</p>')!!}
 							</div>
 
-						</div>
+                        </div>
+                        <div class="form-group">
+                                {{-- Boat type --}}
+                                <label for="boat type">Boat type</label>
+                                <div>
+                                
+                                        <select name="btype" id="" class="form-control">
+                                                <option value="Normal">Normal Boat ride</option>
+                                                <option value="family">family boat ride</option>
+                                                <option value="luxury">Luxury boat ride</option>
+                                               
+                                                
+                                            </select>
+                                            
+                                    {!! $errors->first('btype','<p class="alert alert-danger">:message</p>')!!}
+                                </div>
+    
+                            </div>
 
 				
                                   
 
-                                    <input type="submit" class="btn btn-outline-warning" value="check for available trips">
+                                    <input type="submit" class="btn btn-outline-warning" value="check for available trips" id="check">
                            </form>
                         </div>
                     </div>
@@ -163,7 +180,16 @@
 
     {!! $calendar->script() !!}
 
+<script>
+    $(document).ready(function(){
+        $("#check").click(function(){
+            $('#seats').val();
+});
+    });
 
+
+	
+</script>
 </body>
 
 

@@ -9,6 +9,7 @@ use App\boats;
 use App\trips;
 use App\invoice;
 use App\pricing_details;
+use PDF;
 
 class BookingController extends Controller
 {
@@ -110,7 +111,9 @@ class BookingController extends Controller
             $trips->update();
            
             
-            return View('invoice2')->with('invoice',$invoice)->with('trips',$trips);  
+            $pdf=PDF::loadview('invoice',['invoice'=>$invoice,'trips'=>$trips,'finalprice'=>$finalprice,'Noofseats'=>$Noofseats]);
+            View('invoice')->with('invoice',$invoice)->with('trips',$trips)->with('finalprice',$finalprice)->with('Noofseats',$Noofseats);  
+           return $pdf->stream('invoice.pdf'); 
     }
     public function generateinvoice(request $invoice){
         return $invoice;

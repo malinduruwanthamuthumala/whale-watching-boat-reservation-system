@@ -9,7 +9,7 @@
                  <h1 class="font3 custom-header text-primary fadeIn">WAVES</h1>
                  <p class="">Join with us to reserve your whale watching boat rides .surf through whale watching boats and find the most suited,compare with facilitiies and different price ranges
                  </p>
-                    <a href="/reserve"><button class="btn btn-outline-info">RESERVE YOUR RIDE</button></a>
+                    <a href="/reserve"><button class="btn btn-outline-warning">RESERVE YOUR RIDE</button></a>
             </div> 
         </div>
     </div>
@@ -28,54 +28,31 @@
 </div>
 
 
-<div id="boxone">
-    <div class="container">
-        <div class="row">
-     
-                <div class="col-md-4">
-                        <div class="custom_padding">
-                            <div class=" text-center" >
-                                <img src="img/sv.png" alt="" style="height:200px;width:100% " class="">
-                                <h1 class="">Book your hotel Room</h1>
-                                <p>Save time and money on your accommodation search with millions of ... You are now online ...
-                                     Find your ideal hotel and compare prices from different websites ... 
-                                    From budget hostels to luxury suites, trivago makes it easy to book online.</p>
-                                
-                            </div>
-                        </div>    
-                   </div>    
+<div id="boxone" style="  background-size: cover;
+background-image: url('img/bb.jpeg'); height:600px;width:100%" >
+ <div class="mask flex-center rgba-black-strong"> 
+<div class="row" class="">
+   
+    <div class="col-md-6 text-white">
+        <h2 class=""text-white>WE ARE  <span style="font-size:20px">ROYAL TOURS MIRISSA</span></h2>
+        <p>We offer you the best whale and dolphin watching boat (comfortable/biggest and speed) with all the facilities from royal tours mirissa . From the beginning to the end of the journey. We are committed to be with you and provide you with a friendly and courteous service.
+             also we operate private whale and dolphin watching boat that you need.</p>
+        <a href="" class="btn btn-outline-warning">CONTACT US</a>
+    </div>
+    <div class="col-md-6 text-white">
+            We organize safari tours for the tourists who come to mirissa/weligama and polhena , the most well-known areas for tourism at a special rate. There you can save your valuable time by going on a safari tour in yala national park an
+            d udawalawa national park within few hours in a day.
 
-                   <div class="col-md-4">
-                        <div class="custom_padding">
-                            <div class=" text-center" >
-                                <img src="img/ffs.jpg" alt="" style="height:200px;width:100% " class="">
-                                <h1 class="">Reserve your ride</h1>
-                                <br><br>
-                                <p>Each season brings a whole different array of scenery and species 
-                                    to the marsh – it’s not just a boat ride. Call and reserve your
-                                     spot on the boat now and get ready to experience the largest mamals marsh in SRI LANKA.</p>
-                               
-                            </div>
-                        </div>    
-                   </div>    
+        <br><br>
+            We are committed to you traveling needs around mirissa. There we will provide you with a good transport service to go to the airport or any other tourist holidays inns around the airport. You will be given comfortable vehicles at a fair price and with well experienced well behaved drivers.
+           <br><br>
+            We will give you the opportunity to see the charming beauty of shallow beach area around mirissa. There you can see several varieties of beautiful fish and turtles. Also we will give you a chance to swim with those creatures. Mirissa is famous for both tourism and fishing industry. so we can offer you an enjoyable opportunity to catch fish if you need.
 
-                   
-           <div class="col-md-4">
-                <div class="custom_padding">
-                    <div class="text-center" >
-                        <img src="img/dv.jpg" alt="" style="height:200px;width:100% " class="">
-                        <h1 class="">Arrange your transport</h1>
-                        <p>Reserve your transport to Hotel. Let our concierge team arrange your transportation and reach our hotel with convenience.
-                 </p>
-                        
-                    </div>
-                </div>    
-           </div>    
 
-       
+</div>
+</div>       
         </div>
-</div>
-</div>
+
 
 
 <div id="boxtwo" class="view">
@@ -87,7 +64,7 @@
             <br> <br>
             <div class="row">
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     We are wormly welcome anyone to our Waves tourism management system. Join with us as a boat owner,
                     and you can gain more and more profits through whale watching trips. This will be really
                     easy for you because we are available 24X7 anywhere. 
@@ -96,19 +73,18 @@
                    
 
                 </div>
-                <div class="col-md-6">
-                <!-- Login and registration buttons -->
-                    @guest
-                    <div class="row">
-                    <button class="btn btn-danger btn-lg"><a  href="{{ route('login') }}">{{ __('Login') }}</a></button>
-                            
-                    </div>
-                    <div class="row">
-                    <button class="btn btn-success btn-lg"><a href="{{ route('register') }}">{{ __('Register') }}</a></button>
-                                
-                    </div>
-                        
-                    @endguest 
+                <div class="col-md-12">
+              <div class="row">
+                  <div class="col-md-2">
+                        <a  href="{{ route('login') }}"><button class="btn btn-outline-warning btn-lg">{{ __('Login') }}</button></a>
+                  </div>
+                  <div class="col-md-2">
+                       <a href="{{ route('register') }}">  <button class="btn btn-outline-warning btn-lg">{{ __('Register') }}</button></a>
+                  </div>
+              
+                                    
+              </div>
+                   
                       
                 </div>
 
@@ -123,125 +99,137 @@
 
 
 
-<div id="boxthree">
+<div id="boxthree"  style="background-image: url('img/n.jpg'); height:1400px;width:100%">
     <div class="container">
+        <br>
         <div class="row">
             <div class="col-md-6">
-                    <div class="custom_padding">
-                            <div class="card text-center" >
-                                    <div class="view overlay zoom">
-                                            <img src="img/speedboat.jpg" alt="" style="height:250px;width:100% " class="zoom">
-                                            <div class="mask flex-center waves-effect waves-light">
-                                              
-                                            </div>
-                                          </div>
-                                
-                                <h1 class="">Speed Boat Whale Tour</h1>
-                                <p>Watching tour that reduce travelling time and increases Watching time. 
-                                it's unique private tour and you can enjoy much than shared tour.</p>
-                                <p>
-                                    <li>Passenger Capacity: 5max</li>
-                                    <li>Maximum Speed:30knots</li>
-                                    <li>Tour Time:2Hours</li>
-                                    <li>Tea,Coffee,Breakfast/Water Included</li>
-                                    </ul>
-                                    </p>
-                                
-                                <a href="/home" class="btn btn-primary">SEE MORE</a>
-                                      
-                            </div>
-                        </div>    
-            </div>
+                    <!-- Card Narrower -->
+<div class="card card-cascade narrower">
+
+        <!-- Card image -->
+        <div class="view view-cascade overlay">
+          <img  class="card-img-top" src="img/speedboat.jpg" alt="Card image cap">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+      
+        <!-- Card content -->
+        <div class="card-body card-body-cascade">
+      
+          <!-- Label -->
+          <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i>Royal Tours Mirissa</h5>
+          <!-- Title -->
+          <h4 class="font-weight-bold card-title">Speed Boat Whale Tour</h4>
+          <!-- Text -->
+          <p class="card-text">
+                Watching tour that reduce travelling time and increases Watching time. 
+                it's unique private tour and you can enjoy much than shared tour.
+          </p>
+          <p class="card-text">
+              <ul>
+                <li>Passenger Capacity: 5max</li>
+                <li>Maximum Speed:30knots</li>
+                <li>Tour Time:2Hours</li>
+                <li>Tea,Coffee,Breakfast/Water Included</li>
+                </ul>
+                </p>
+          <!-- Button -->
+          <a class="btn btn-unique">Button</a>
+      
+        </div>
+      
+      </div>
+     
+</div>
             
             
             <div class="col-md-6">
-                    <div class="custom_padding">
-                            <div class="card text-center" >
-                                    <div class="view overlay zoom">
-                                            <img src="img/normalboat.jpg" alt="" style="height:250px;width:100% " class="zoom">
-                                            <div class="mask flex-center waves-effect waves-light">
-                                              
-                                            </div>
-                                          </div>
-                                
-                                <h1 class="">Normal Boat Whale Tour</h1>
+                                        <!-- Card Narrower -->
+                    <div class="card card-cascade narrower">
 
-                                <p>
-                                You can feel the beauty of the ocean and can observe whales/dolphins in a close view.
-                                This will good for you to spend your leisure time meaningfully.
-                                </p>
-                                <p>
-                                <li>Passenger Capacity: 50max</li>
-                                <li>Maximum Speed:12knots</li>
-                                <li>Tour Time:5Hours</li>
-                                <li>Breakfast/Water Included</li>
-
-                                </p>
-                                <a href="/home" class="btn btn-primary">SEE MORE</a>
-                                   
+                            <!-- Card image -->
+                            <div class="view view-cascade overlay">
+                            <img  class="card-img-top" src="img/normalboat.jpg" alt="Card image cap">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
                             </div>
-                        </div>    
-            </div>
-            
+                        
+                            <!-- Card content -->
+                            <div class="card-body card-body-cascade">
+                        
+                            <!-- Label -->
+                            <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i>Royal Tours Mirissa</h5>
+                            <!-- Title -->
+                            <h4 class="font-weight-bold card-title">Normal Boat Whale Tour</h4>
+                            <!-- Text -->
+                            <p class="card-text">
+                                    You can feel the beauty of the ocean and can observe whales/dolphins in a close view.
+                                    This will good for you to spend your leisure time meaningfully
+                            </p>
+                            <p class="card-text">
+                                    <li>Passenger Capacity: 50max</li>
+                                    <li>Maximum Speed:12knots</li>
+                                    <li>Tour Time:5Hours</li>
+                                    <li>Breakfast/Water Included</li>
+    
+                                    </p>
+                            <!-- Button -->
+                            <a class="btn btn-unique">Button</a>
+                        
+                            </div>
+                        
+                        </div>
+                        <!-- Card Narrower -->
+                
 
         </div>
-
-        <div class="row">
+        
+        <div class="row" style="margin-top:20px">
                 <div class="col-md-6">
-                        <div class="custom_padding">
-                                <div class="card text-center" >
-                                    
-                                    <div class="view overlay zoom">
-                                            <img src="img/luxuryboat.jpg" class="img-fluid " alt="zoom"  style="height:250px;width:100% ">
-                                            <div class="mask flex-center waves-effect waves-light">
-                                              
-                                            </div>
-                                          </div>
-                                    <h1 class="">Luxury Family Whale Tour</h1>
-                                    <p>You can spend really good time with family since this is a family based tour.
+                        
+                              <!-- Card Narrower -->
+                    <div class="card card-cascade narrower">
+
+                            <!-- Card image -->
+                            <div class="view view-cascade overlay">
+                            <img  class="card-img-top" src="img/luxuryboat.jpg" alt="Card image cap">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                            </div>
+                        
+                            <!-- Card content -->
+                            <div class="card-body card-body-cascade">
+                        
+                            <!-- Label -->
+                            <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i>Royal Tours Mirissa</h5>
+                            <!-- Title -->
+                            <h4 class="font-weight-bold card-title">Luxury Boat Whale Tour</h4>
+                            <!-- Text -->
+                            <p class="card-text">You can spend really good time with family since this is a family based tour.
                                     In this boat sofa,a washroom, bed room with two beds are available only for you.
                                 
                                 </p>
-                                <p>
-                                <li>Passenger Capacity: 5max</li>
-                                <li>Maximum Speed:20knots</li>
-                                <li>Tour Time:10Hours</li>
-                                <li>Breakfast,Lunch,Dinner/Water Included</li>
-
-                                </p>
-                                    <a href="/home" class="btn btn-primary">SEE MORE</a>
-                                          
-                                </div>
-                            </div>    
-                </div>
-                
-                
-                <div class="col-md-6">
-                        <div class="custom_padding">
-                                <div class="card text-center" >
-                                    
-                                    <div class="view overlay zoom">
-                                            <img src="img/smallboat.jpg" alt="" style="height:250px;width:100% " class="zoom">
-                                            <div class="mask flex-center waves-effect waves-light">
-                                              
-                                            </div>
-                                          </div>
-                                    <h1 class="">Small Boat Whale Tour</h1>
-                                    <p>Watching tour that reduce travelling time and increases Watching time. 
-                                it's unique private tour and you can enjoy much than shared tour.</p>
-                                <p>
-                                    <p>
-                                    <li>Passenger Capacity: 3max</li>
-                                    <li>Maximum Speed:25knots</li>
-                                    <li>Tour Time:3Hours</li>
-                                    <li>Breakfast/Water Included</li>
+                            <p class="card-text">
+                                    <li>Passenger Capacity: 5max</li>
+                                    <li>Maximum Speed:20knots</li>
+                                    <li>Tour Time:10Hours</li>
+                                    <li>Breakfast,Lunch,Dinner/Water Included</li>
                                     </p>
-                                      <button class="btn btn-primary">SEE MORE</button>
-                                       
-                                </div>
-                            </div>    
+                            <!-- Button -->
+                            <a class="btn btn-unique">Button</a>
+                        
+                            </div>
+                        
+                        </div>
+                        <!-- Card Narrower -->
                 </div>
                 
+                
+              
     
             </div>
 

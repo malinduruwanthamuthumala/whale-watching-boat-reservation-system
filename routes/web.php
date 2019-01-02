@@ -86,3 +86,12 @@ Route::get('/reports_revenue_annual',function(){
 }); 
 Route::get('/earning_reports_revenue','Admincontroller@earning_reports_revenue');
 
+Route::get('/getPDFmirissaa', 'PDFController@getPDFmirissaa');
+Route::get('/displayPDFmirissaa','PDFController@displayPDFmirissaa');
+Route::get('/displayPDFcolombo','PDFController@displayPDFcolombo');
+Route::get('/getPDFtrinco', 'PDFController@getPDFtrinco');
+route::get('/displayPDFtrinco','PDFController@displayPDFtrinco');
+Route::get('/getPDFcolombo', 'PDFController@getPDFcolombo');
+Route::get('/month', 'PDFController@month');
+
+Route::get('/displymonth', 'PDFController@displymonth');
