@@ -6,7 +6,7 @@
  <body>
 @section('content')
 
-<div class="" col-md-12" style="margin-top:100px;margin-left:-40px">
+<div class=" col-md-12" style="margin-top:100px;margin-left:-40px">
         <div class="container box">
                 
                 <div class="panel panel-default">
