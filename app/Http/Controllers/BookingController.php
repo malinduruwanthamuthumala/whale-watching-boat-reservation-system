@@ -73,7 +73,7 @@ class BookingController extends Controller
                 $pricing=pricing_details::where('pricing_plan','luxury')->first();
                 $priceperhead=$pricing->price; 
                 $discount=$pricing->discount;
-                $initialprice=$priceperhead*$Noofseats;
+                $initialprice=$priceperhead;
                 $discountedprice=$initialprice*($discount/100);
                 $finalprice=$initialprice-$discountedprice;
             }
@@ -131,7 +131,19 @@ class BookingController extends Controller
     {
        $price=pricing_details::all()->first();
        $date=trips::find($id);
-       return view('reservation.pricing')->with('reservationdetails',$date)->with('pricing',$price);
+       $boatid=$date->boatid;
+       $boat=boats::where('boatid',$boatid)->first();
+       $boattype=$boat->boattype;
+       if($boattype=="luxury"){
+          $price=pricing_details::where('pricing_plan',$boattype)->first();
+       }
+    elseif($boattype=="family"){
+        $price=pricing_details::where('pricing_plan',$boattype)->first();
+    }
+    elseif($boattype=="Normal"){
+          $price=pricing_details::where('pricing_plan',$boattype)->first();
+    }
+       return view('reservation.pricing')->with('reservationdetails',$date)->with('pricing',$price)->with('boattype',$boattype);
 
        
     }

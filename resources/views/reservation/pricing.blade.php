@@ -27,10 +27,11 @@
 					<div class="col-md-4">
 						<div class="form-group">
 							{{-- first name --}}
-							<label for="">First Name</label>
+							<label for="" >First Name</label>
 							<div>
 							
-								<input type="text" name="first_name" class="form-control">
+								<input type="text" name="first_name" class="form-control" id="fname">
+								<p style="color:red" id="fname_error"></p>
 								{!! $errors->first('first_name','<p class="alert alert-danger">:message</p>')!!}
 							</div>
 
@@ -45,7 +46,8 @@
 								<div class="form-group">
 									<label for="">Last Name</label>
 									<div>
-										<input type="text" class="form-control" name="lname">
+										<input type="text" class="form-control" name="lname" id="lname">
+										<p style="color:red" id="lname_error"></p>
 										{!! $errors->first('last_name','<p class="alert alert-danger">:message</p>')!!}
 									</div>
 	
@@ -57,12 +59,13 @@
 						{{-- number of seats --}}
 						<div class="col-md-8">
 								<div class="form-group">
-									<label for="">number of seats</label>
+									<label for="" id="lseats">number of seats</label>
 									<div>
 										
 										
 										<input type="number" name="seats" class="form-control" id="seats">
 										{!! $errors->first('seats','<p class="alert alert-danger">:message</p>')!!}
+										<p id="seats_error" style="color:red"></p>
 									</div>
 								</div>
 						</div>
@@ -73,7 +76,8 @@
 								<div class="form-group">
 									<label for="">National Id Card Number</label>
 									<div>
-										<input type="text" name="nic" class="form-control">	
+										<input type="text" name="nic" class="form-control" id="nic">	
+										<p style="color:red" id="nic_error"></p>
 										{!! $errors->first('nic','<p class="alert alert-danger">:message</p>')!!}
 									</div>
 	
@@ -87,7 +91,8 @@
 								<div class="form-group">
 									<label for="">Telephone number</label>
 									<div>
-										  <input type="text" class="form-control" name="telephone">
+										  <input type="text" class="form-control" name="telephone" id="tel">
+										  <p style="color:red" id="tel_error"></p>
 										{!! $errors->first('telephone','<p class="alert alert-danger">:message</p>')!!}
 									</div>
 	
@@ -104,7 +109,8 @@
 								<div class="form-group">
 									<label for="">email</label>
 									<div>
-										  <input type="text" class="form-control" name="email">
+										  <input type="email" class="form-control" name="email" id="email">
+										  <p style="color:red" id="email_error"></p>
 										{!! $errors->first('email','<p class="alert alert-danger">:message</p>')!!}
 									</div>
 	
@@ -122,9 +128,9 @@
 						<input type="hidden" value="{{$reservationdetails->boatid}}" name="boat_id">
 						<input type="hidden" value="{{$reservationdetails->availableseats}}" name="seatsavailable" id="available_seats">
 						<input type="hidden" value="{{$reservationdetails->reservationid}}" name="res_id">
-						
+						<input type="hidden" value="{{$boattype}}" name="type" id="type">
 							<input type="hidden" value="{{$pricing->price}}" name="priceperhead" id="priceperhead">
-						
+						<input type="hidden" value="{{$pricing->discount}}" id="disc">
 					
 								   
 						{{-- end hidden input fields --}}
@@ -140,9 +146,10 @@
 				  
 					  <!-- Title -->
 					<h3>price per head: $ {{$pricing->price}}.00</h3>
-					  <p><b>Number of seats: <span id="numseats"></span></b> </p>
+					  <p>Number of seats: <span id="numseats"></span> </p>
+					  <p>Total : USD <span id="tot"></span></p>
 					<p><b>Discounts:{{$pricing->discount}}%</b></p>
-					  <p><b>TOTAL :<span id="price"></span></b><p>
+					  <p><b>Final payement: USD <span id="price"></span></b><p>
 					 
 
 						<ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
@@ -190,7 +197,7 @@
 						</div>
 
 						<div class="col-md-6 ">
-							<input type="submit" class="btn btn-danger btn-md" value="CONFIRM RESERVATION">
+							<input type="submit" class="btn btn-danger btn-md" value="CONFIRM RESERVATION" onClick="return empty()" id="check">
 						</div>
 					</div>
 				  
@@ -207,33 +214,102 @@
 </form>								
 							
 					
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
+	var type=$('#type').val();
+	if(type=="family"){
+		$('#seats').val('1');
+		$('#seats').hide();
+		$('#lseats').hide();
+			$('#numseats').text('10');
+			
+		var discont=$('#disc').val();
+		var priceperhead=$('#priceperhead').val();
+		var discountedprice=priceperhead*(discont/100);
+		var tot=priceperhead-discountedprice;
+		$("#price").text('$'+  tot);
+			
+	}
     $("#seats").focusout(function(){
+		
 		// alert('abcd');
 		 var availableseats=parseInt($('#available_seats').val(),10);
 		//  alert(availableseats);
 		 var seats=parseInt($('#seats').val(),10);
 		//  alert(seats)
-		 var a=availableseats<seats;
+		 var a=availableseats-seats;
 		//  alert(a);
 		
-		if(a){
-			alert("There is only " +" "+availableseats+" "+ "seats available for your reservation");
-		}	
+		if(a<="0" || seats=="0"){
+			$('#seats_error').text("There is only " +" "+availableseats+" "+ "seats available for your reservation");
+			$("#seats").css("background-color", "#FADBD8  ");
+		}
+	
 	else{
+		$("#seats").css("background-color", "white ");
+		 $('#seats_error').text("");
 		 var priceperhead=$('#priceperhead').val();
-			
+			var discont=$('#disc').val();
 		 	var price=seats*priceperhead;
-			$("#price").text('$'+ price );
+			 var discountedprice=price*(discont/100);
+			 var finalprice= price-discountedprice;
+			$("#price").text('$'+ finalprice );
 			$('#numseats').text(seats);
+			$('#tot').text(price);
+			
 		 }
 		
     });
 
-
+  $("#check").click(function(){
+	var firstname = $('#fname').val(); 
+	var lastname =$('#lname').val(); 
+	var tel=$('#tel').val();
+	var email=$('#email').val();
+	var nic=$('#nic').val();
+	var email_regex = '/^[w-.+]+@[a-zA-Z0-9.-]+.[a-zA-z0-9]{2,4}$/';
 	
+	
+	var x=0;
+	if (firstname.length == 0) {
+	$('#fname_error').text("* All fields are mandatory *"); // This Segment Displays The Validation Rule For All Fields
+	$("#fname").focus();
+	x=1;
+	
+}
+if (firstname.length == 0) {
+	$('#nic_error').text("* All fields are mandatory *"); // This Segment Displays The Validation Rule For All Fields
+	$("#nic").focus();
+	x=1;
+	
+}
+
+if (lastname.length == 0) {
+	$('#lname_error').text("* All fields are mandatory *"); // This Segment Displays The Validation Rule For All Fields
+	$("#lname").focus();
+	x=1;
+	
+}
+if (tel.length == 0) {
+	$('#tel_error').text("* All fields are mandatory *"); // This Segment Displays The Validation Rule For All Fields
+	$("#tel").focus();
+	x=1;
+	
+}
+if (email.length == 0) {
+	$('#email_error').text("* All fields are mandatory *"); // This Segment Displays The Validation Rule For All Fields
+	$("#emai").focus();
+	x=1;
+	
+}
+
+if(x==1){
+	return false;
+}
+    });
+   
 });
 </script>
 

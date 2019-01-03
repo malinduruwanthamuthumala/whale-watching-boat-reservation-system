@@ -112,7 +112,10 @@
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <div class="panel panel-primary ">
-                                <div class="panel-heading">choose a date from the following to start the reservation</div>
+                                <div class="panel-heading">
+                                    choose a date from the following to start the reservation
+                                   Boat trips may not be available in certain days sorry for the inconvinence
+                                </div>
                 
                                 <div class="panel-body">
                                     {!! $calendar->calendar() !!}
@@ -141,9 +144,9 @@
                                 
 						<div class="form-group">
 							{{-- number of seats --}}
-							<label for="seats">Number of seats</label>
+							<label for="seats" id="laseats">Number of seats</label>
 							<div>
-							
+                                <h5 id="error" style="color:red"></h5>
 								<input type="text" name="seats" class="form-control" id="seats">
 								{!! $errors->first('seats','<p class="alert alert-danger">:message</p>')!!}
 							</div>
@@ -152,13 +155,14 @@
                         <div class="form-group">
                                 {{-- Boat type --}}
                                 <label for="boat type">Boat type</label>
+                                
                                 <div>
                                 
-                                        <select name="btype" id="" class="form-control">
+                                        <select name="btype" id="select" class="form-control">
                                                 <option value="Normal">Normal Boat ride</option>
                                                 <option value="family">family boat ride</option>
-                                                <option value="luxury">Luxury boat ride</option>
-                                               
+                                                <option value="luxury">luxury</option>
+                                                
                                                 
                                             </select>
                                             
@@ -169,27 +173,53 @@
 
 				
                                   
-
-                                    <input type="submit" class="btn btn-outline-warning" value="check for available trips" id="check">
+                           
+                                    <input type="submit" class="btn btn-outline-warning" value="check for available trips" onClick="return empty()" id="check">
                            </form>
+                           <p id="note" style="color:brown"></p>
                         </div>
                     </div>
+                  
                 </div>
     </div>
 
 
     {!! $calendar->script() !!}
-
-<script>
-    $(document).ready(function(){
-        $("#check").click(function(){
-            $('#seats').val();
-});
+    <script>
+        $(document).ready(function(){
+    
+   
+  
+   $('#select').change(function(){
+      var type=$('#select').val();
+      if(type=='family'){
+          $('#note').text('If you are choosing a family boat you wil have to reserve the whole boat')
+         
+        //   $("#seats").attr('disabled','disabled');
+          $("#seats").val('1');
+          $('#seats').hide();
+          $('#laseats').hide();
+      }
+      
+   });
+   $("#check").click(function(){
+        var x;
+        x = $("#seats").val();
+        if (x == "" || x=="0") {
+            $('#error').text('Please enter the required number of seats');
+            $("#seats").css("background-color", "#FADBD8  ");
+        return false;
+    };
+    
     });
-
+   
 
 	
-</script>
+});
+   
+    </script>
+
+
 </body>
 
 

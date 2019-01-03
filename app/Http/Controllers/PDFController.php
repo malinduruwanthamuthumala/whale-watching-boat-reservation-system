@@ -221,7 +221,8 @@ public function displayPDFmirissaa(){
        $idm=$year.'-02-01';
        $idm2=$year.'-02-28';
        $boatsfebruary = DB::select("SELECT * FROM boattrips WHERE start_date BETWEEN '$idm' AND '$idm2'");
-       $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsfebruary]);
+       return View('pdf.boattripyer_month')->with('boat', $boatsfebruary)->with('month',$month)->with('year',$year);
+       return $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsfebruary]);
        return $pdf -> stream('boattrip.pdf');
     }
 
