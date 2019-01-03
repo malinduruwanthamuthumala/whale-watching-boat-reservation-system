@@ -10,6 +10,9 @@ use App\trips;
 use App\invoice;
 use App\pricing_details;
 use PDF;
+use Mail;
+use App\Mail\Reminder;
+
 
 class BookingController extends Controller
 {
@@ -59,6 +62,7 @@ class BookingController extends Controller
             $invoice->fname=$request->input('first_name');
             $invoice->lname=$request->input('lname');
             $invoice->email=$request->input('email');
+            $email=$request->input('email');
             $invoice->NIC=$request->input('nic');
             $invoice->NOofseats=$request->input('seats');
             $Noofseats=$request->input('seats');
@@ -110,6 +114,7 @@ class BookingController extends Controller
             $invoice->save();
             $trips->update();
            
+            Mail::to($email)->send(new Reminder);
             
             $pdf=PDF::loadview('invoice',['invoice'=>$invoice,'trips'=>$trips,'finalprice'=>$finalprice,'Noofseats'=>$Noofseats]);
             View('invoice')->with('invoice',$invoice)->with('trips',$trips)->with('finalprice',$finalprice)->with('Noofseats',$Noofseats);  

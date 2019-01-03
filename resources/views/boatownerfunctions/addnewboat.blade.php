@@ -1,7 +1,13 @@
 @extends('layouts.userprofileboat')
-<link rel="stylesheet" href="js/formvalidation.js">
-@section('content')
 
+@section('content')
+<div class="col-md-12">
+        @if(Session::has('success'))
+         <div class="alert alert-success">{{session::get('success')}}</div>
+        @elseif(Session::has('warning'))
+         <div class="alert alert-danger">{{session::get('warning')}}</div>
+        @endif 
+     </div>
         <div>
         <h3>PLEASE FILL THE FOLLOWING DETAILS</h3>
             <div class="container" style="margin-top:100px">
@@ -26,10 +32,12 @@
                         <div class="col">
                             <!-- Boat Name -->
                             <div class="md-form">
-                                <input type="text" id="FirstName" class="form-control" name="fname">
+                                <input type="text" class="form-control" name="fname" id="fname1">
                                 <label for="FirstName">Name of the boat</label>
                             </div>
+                            {!! $errors->first('fname','<p class="alert alert-danger">:message</p>')!!}
                         </div>
+                        
                         <div class="col">
                         
                             <div class="md-form">
@@ -108,31 +116,10 @@
                     </div>
 
                     <!-- Sign up button -->
-                <input type="submit" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0">
+                <input type="submit" class="btn btn-outline-info " id="check">
 
                     <!-- Social register -->
-                    <p>or sign up with:</p>
-
-                    <a type="button" class="btn-floating btn-fb btn-sm">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <a type="button" class="btn-floating btn-tw btn-sm">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <a type="button" class="btn-floating btn-li btn-sm">
-                        <i class="fa fa-linkedin"></i>
-                    </a>
-                    <a type="button" class="btn-floating btn-git btn-sm">
-                        <i class="fa fa-github"></i>
-                    </a>
-
-                    <hr>
-
-                    <!-- Terms of service -->
-                    <p>By clicking
-                        <em>Sign up</em> you agree to our
-                        <a href="" target="_blank">terms of service</a> and
-                        <a href="" target="_blank">terms of service</a>. </p>
+                    
 
                 </form>
                 <!-- Form -->
@@ -155,8 +142,23 @@
             <!-- Material form register -->
 
         @endsection()
-        <script src="js/formvalidation.js"></script>
-        <script>
-
-
-        </script>
+        
+       
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script>
+             $(document).ready(function(){
+                var input1=$('#fname1').val();
+            
+           
+         
+           $("#check").click(function(){
+              
+            
+            });
+           
+        
+            
+        });
+           
+            </script>
+        

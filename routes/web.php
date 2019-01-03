@@ -95,3 +95,4 @@ Route::get('/getPDFcolombo', 'PDFController@getPDFcolombo');
 Route::get('/month', 'PDFController@month');
 
 Route::get('/displymonth', 'PDFController@displymonth');
+

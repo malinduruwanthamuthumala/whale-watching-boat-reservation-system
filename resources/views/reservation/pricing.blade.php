@@ -220,7 +220,7 @@
 $(document).ready(function(){
 	var type=$('#type').val();
 	if(type=="family"){
-		$('#seats').val('1');
+		$('#seats').val('10');
 		$('#seats').hide();
 		$('#lseats').hide();
 			$('#numseats').text('10');

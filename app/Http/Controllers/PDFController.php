@@ -221,9 +221,8 @@ public function displayPDFmirissaa(){
        $idm=$year.'-02-01';
        $idm2=$year.'-02-28';
        $boatsfebruary = DB::select("SELECT * FROM boattrips WHERE start_date BETWEEN '$idm' AND '$idm2'");
-       return View('pdf.boattripyer_month')->with('boat', $boatsfebruary)->with('month',$month)->with('year',$year);
-       return $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsfebruary]);
-       return $pdf -> stream('boattrip.pdf');
+       $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsfebruary]);
+       return View('pdf.boattripyer_month')->with('boat',$boatsfebruary)->with('month',$month)->with('year',$year);
     }
 
     //march
@@ -232,7 +231,7 @@ public function displayPDFmirissaa(){
        $idm2=$year.'-03-31';
        $boatsmarch = DB::select("SELECT * FROM boattrips WHERE start_date BETWEEN '$idm' AND '$idm2' ");
        $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsmarch]);
-       return $pdf -> stream('boattrip.pdf');
+       return View('pdf.boattripyer_month')->with('boat',$boatsmarch)->with('month',$month)->with('year',$year);
     }
 
      //april
@@ -241,7 +240,7 @@ public function displayPDFmirissaa(){
        $idm2=$year.'-04-30';
        $boatsapril = DB::select("SELECT * FROM boattrips WHERE start_date BETWEEN '$idm' AND '$idm2' ");
        $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsapril]);
-       return $pdf -> stream('boattrip.pdf');
+       return View('pdf.boattripyer_month')->with('boat',$boatsapril)->with('month',$month)->with('year',$year);
     }
 
      //may
@@ -250,7 +249,7 @@ public function displayPDFmirissaa(){
        $idm2=$year.'-05-31';
        $boatsmay = DB::select("SELECT * FROM boattrips WHERE start_date BETWEEN '$idm' AND '$idm2' ");
        $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsmay]);
-       return $pdf -> stream('boattrip.pdf');
+       return View('pdf.boattripyer_month')->with('boat',$boatsmay)->with('month',$month)->with('year',$year);
     }
 
      //june
@@ -259,7 +258,7 @@ public function displayPDFmirissaa(){
        $idm2=$year.'-06-30';
        $boatsjune = DB::select("SELECT * FROM boattrips WHERE start_date BETWEEN '$idm' AND '$idm2' ");
        $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsjune]);
-       return $pdf -> stream('boattrip.pdf');
+       return View('pdf.boattripyer_month')->with('boat',$boatsjune)->with('month',$month)->with('year',$year);
     }
 
      //july
@@ -268,7 +267,7 @@ public function displayPDFmirissaa(){
        $idm2=$year.'-07-31';
        $boatsjuly = DB::select("SELECT * FROM boattrips WHERE start_date BETWEEN '$idm' AND '$idm2' ");
        $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsjuly]);
-       
+       return View('pdf.boattripyer_month')->with('boat',$boatsjuly)->with('month',$month)->with('year',$year);
     }
 
     //august
@@ -277,7 +276,7 @@ public function displayPDFmirissaa(){
        $idm2=$year.'-08-31';
        $boatsaugust = DB::select("SELECT * FROM boattrips WHERE start_date BETWEEN '$idm' AND '$idm2' ");
        $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsaugust]);
-       return $pdf -> stream('boattrip.pdf');
+       return View('pdf.boattripyer_month')->with('boat',$boatsaugust)->with('month',$month)->with('year',$year);
     }
 
     //september
@@ -286,7 +285,7 @@ public function displayPDFmirissaa(){
        $idm2=$year.'-09-30';
        $boatsseptember = DB::select("SELECT * FROM boattrips WHERE start_date BETWEEN '$idm' AND '$idm2' ");
        $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsseptember]);
-       return $pdf -> stream('boattrip.pdf');
+       return View('pdf.boattripyer_month')->with('boat',$boatsseptember)->with('month',$month)->with('year',$year);
     }
 
    //october
@@ -295,6 +294,7 @@ public function displayPDFmirissaa(){
        $idm2=$year.'-10-31';
        $boatsoctober = DB::select("SELECT * FROM boattrips WHERE start_date BETWEEN '$idm' AND '$idm2' ");
        $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsoctober]);
+       return View('pdf.boattripyer_month')->with('boat',$boatsoctober)->with('month',$month)->with('year',$year);
     //    return $pdf -> stream('boattrip.pdf');
     }
 
@@ -304,6 +304,7 @@ public function displayPDFmirissaa(){
        $idm2=$year.'-11-30';
        $boatsnovember = DB::select("SELECT * FROM boattrips WHERE start_date BETWEEN '$idm' AND '$idm2' ");
        $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsnovember]);
+       return View('pdf.boattripyer_month')->with('boat',$boatsnovember)->with('month',$month)->with('year',$year);
     //    return $pdf -> stream('boattrip.pdf');
     }
 
@@ -313,6 +314,7 @@ public function displayPDFmirissaa(){
        $idm2=$year.'-12-31';
        $boatsdecember = DB::select("SELECT * FROM boattrips WHERE start_date BETWEEN '$idm' AND '$idm2' ");
        $pdf = PDF::loadView('pdf.boattrip', ['boat'=>$boatsdecember]);
+       return View('pdf.boattripyer_month')->with('boat',$boatsdecember)->with('month',$month)->with('year',$year);
     //    return $pdf -> stream('boattrip.pdf');
     }
 
