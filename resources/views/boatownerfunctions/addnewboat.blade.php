@@ -32,10 +32,10 @@
                         <div class="col">
                             <!-- Boat Name -->
                             <div class="md-form">
-                                <input type="text" class="form-control" name="fname" id="fname1">
+                                <input type="text" class="form-control" name="name" id="fname1">
                                 <label for="FirstName">Name of the boat</label>
                             </div>
-                            {!! $errors->first('fname','<p class="alert alert-danger">:message</p>')!!}
+                            {!! $errors->first('name','<p class="alert alert-danger">:message</p>')!!}
                         </div>
                         
                         <div class="col">
@@ -43,6 +43,7 @@
                             <div class="md-form">
                                 <input type="text" id="Regno" class="form-control" name="regno">
                                 <label for="Regno">Government Registration number</label>
+                                {!! $errors->first('regno','<p class="alert alert-danger">:message</p>')!!}
                             </div>
 
                         </div>
@@ -55,7 +56,7 @@
                         <option value="family">family boat</option>
                         <option value="luxury">luxury boat</option>
                     </select>
-
+                    {!! $errors->first('btype','<p class="alert alert-danger">:message</p>')!!}
                     {{-- location --}}
                     <select class="mdb-select md-form form-control" name="location">
                         <option value="" disabled selected>Choose your location</option>
@@ -63,12 +64,13 @@
                         <option value="trincomalee">Trincomalee</option>
                         <option value="kalpitiya">colombo</option>
                     </select>
-                
+                    {!! $errors->first('location','<p class="alert alert-danger">:message</p>')!!}
                     
                     <!-- number of insured passengers-->
                     <div class="md-form">
                         <input type="text" id="noofseats" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock" name="noofseats">
                         <label for="noofseats">No of seats</label>
+                        {!! $errors->first('regno','<p class="alert alert-danger">:message</p>')!!}
                         
                     </div>
                     
@@ -78,8 +80,9 @@
 
                     <!-- Phone number -->
                     <div class="md-form">
-                        <input type="password" id="Phone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock" name="tp">
+                        <input type="password" id="Phone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock" name="tel">
                         <label for="Phone">Phone number</label>
+                      
                         
                     </div>
 
@@ -87,6 +90,7 @@
                     <div class="md-form">
                         <input type="text" id="noofinsuredpasengers" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock" name="noofinsuredpassengers">
                         <label for="noofinsuredpasengers">No of insured passengers</label>
+                        {!! $errors->first('noofinsuredpassengers','<p class="alert alert-danger">:message</p>')!!}
                         
                     </div>
                     
@@ -106,12 +110,14 @@
                     <div class="md-form">
                         <input type="text" id="bankaccno" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock" name="bankaccno">
                         <label for="bankaccno">Bank account number</label>
+                        {!! $errors->first('bankaccno','<p class="alert alert-danger">:message</p>')!!}
                         
                     </div>
 
                     <div class="md-form">
                         <input type="text" id="bankname" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock" name="bankname">
                         <label for="bankname">Name of the bank</label>
+                        {!! $errors->first('bankname','<p class="alert alert-danger">:message</p>')!!}
                         
                     </div>
 

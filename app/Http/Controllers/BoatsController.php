@@ -34,7 +34,7 @@ class BoatsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-        'fname'=>'required',
+        'name'=>'required',
         'regno'=>'required',
         'btype'=>'required',
         'location'=>'required',
@@ -53,7 +53,7 @@ class BoatsController extends Controller
        ]);
 
       $boats = new boats;
-         $boats->name=$request->input('fname');
+         $boats->name=$request->input('name');
          $boats->governmentregno =$request->input('regno');
          $boats->boattype =$request->input('btype');
          $boats->location=$request->input('location');
