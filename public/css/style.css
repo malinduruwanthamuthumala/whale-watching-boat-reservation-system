@@ -64,3 +64,11 @@ font-family: 'Ultra', serif;
     padding-top:50px;
     padding-bottom: 50px;
 }
+#intro1{
+   
+    background-image: url('img/a.jpeg');
+    height:670px;
+    background-size: cover;
+    background-attachment: fixed;
+   
+}

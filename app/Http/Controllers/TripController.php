@@ -9,6 +9,7 @@ use App\boats;
 use App\trips;
 use App\invoice;
 use App\payment;
+use DB;
 
 class TripController extends Controller
 {
@@ -71,6 +72,7 @@ class TripController extends Controller
     }
 
     public function Resdetails(request $request){
+        
         $res_id=$request->input('resid');
         $reservations=invoice::where('reservationid',$res_id)->get();
        $price=invoice::where('reservationid',$res_id)->pluck('price')->toArray();
@@ -81,6 +83,8 @@ class TripController extends Controller
        }
        
        return view('boatownerfunctions.res_details')->with('res_details',$reservations)->with('resid',$res_id)->with('total_price',$TOTAL);
+    
+    
     }
 
     public function endtrip(request $request){
@@ -130,8 +134,89 @@ class TripController extends Controller
     }
 
     public function payhistory(){
+        $total=0;
         $id=auth()->user()->id;
         $payement=payment::where('boatowner_id',$id)->where('status','transfered')->get();
-        return view('boatownerfunctions.paymenthistory')->with('payement',$payement);
+        $payamount=payment::where('boatowner_id',$id)->where('status','transfered')->pluck('payement_amount');
+        foreach( $payamount as $payamount){
+            $total=$total+$payamount;
+
+        }
+        
+        return view('boatownerfunctions.paymenthistory')->with('payement',$payement)->with('total',$total);
+
     }
+    public function search_history(request $request){
+        $total=0;
+        $id=auth()->user()->id;
+        $idm=$request->input('start_date');
+     $idm2=$request->input('end_date');
+     $payement=collect(DB::select("SELECT * FROM payments WHERE Enddate BETWEEN ' $idm' AND '$idm2'"))->where('boatowner_id',$id);
+    $payamount=collect(DB::select("SELECT * FROM payments WHERE Enddate BETWEEN ' $idm' AND '$idm2'"))->where('boatowner_id',$id)->pluck('payement_amount');
+     foreach( $payamount as $payamount){
+        $total=$total+$payamount;
+
+    }
+     return view('boatownerfunctions.paymenthistory')->with('payement',$payement)->with('total',$total);
+    }
+    function action(Request $request){
+        
+       if($request->ajax())
+       {
+        $output = '';
+        $query = $request->get('query');
+        $resid =$request->get('resid');
+        if($query != '')
+        {
+         $data = invoice::where('reservationid',$resid)
+           
+           ->Where('email', 'like', '%'.$query.'%')
+          
+           ->orderBy('invoiceid', 'desc')
+           ->get();
+           
+        }
+        else
+        {
+         $data =invoice::where('reservationid',$resid)->get();
+        }
+        $total_row = $data->count();
+        if($total_row > 0)
+        {
+         foreach($data as $row)
+         {
+          $output .= '
+          <tr>
+          
+           <td>'.$row->boatid.'</td>
+           <td>'.$row->reservationid.'</td>
+           <td>'.$row->fname.'</td>
+           <td>'.$row->lname.'</td>
+           <td>'.$row->email.'</td>
+           <td>'.$row->NIC.'</td>
+           <td>'.$row->NOofseats.'</td>
+           <td>'.$row->price.'</td>
+           
+          
+          </tr>
+          ';
+         }
+        }
+        else
+        {
+         $output = '
+         <tr>
+          <td align="center" colspan="5">No Data Found</td>
+         </tr>
+         ';
+        }
+        $data = array(
+         'table_data'  => $output,
+         'total_data'  => $total_row
+        );
+  
+        echo json_encode($data);
+       }
+    }
+  
 }

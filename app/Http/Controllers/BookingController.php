@@ -60,9 +60,12 @@ class BookingController extends Controller
             $invoice->reservationid=$request->input('res_id');
             $resid=$request->input('res_id');
             $invoice->fname=$request->input('first_name');
+            $username=$request->input('first_name');
+            
             $invoice->lname=$request->input('lname');
             $invoice->email=$request->input('email');
             $email=$request->input('email');
+            // $email=$request->input('email');
             $invoice->NIC=$request->input('nic');
             $invoice->NOofseats=$request->input('seats');
             $Noofseats=$request->input('seats');
@@ -105,7 +108,7 @@ class BookingController extends Controller
             $invoice->price=$finalprice;
             $invoice->telephone=$request->input('telephone');
             $trips=trips::where('reservationid', $resid)->first();
-
+            $time=$trips->startingtime;
             $currently_availableseats=$trips->availableseats;
             $currently_reservedseats=$trips->reservedseats;
             $trips->availableseats=$currently_availableseats-$Noofseats;
@@ -114,10 +117,14 @@ class BookingController extends Controller
             $invoice->save();
             $trips->update();
            
-            Mail::to($email)->send(new Reminder);
+         
+            Mail::send('emails.paymentdone',['invoice'=>$invoice,'trips'=>$trips,'finalprice'=>$finalprice,'Noofseats'=>$Noofseats,'discountedprice'=>$discountedprice,'priceperhead'=>$priceperhead,'time',$time], function($msg) use ($email,$username){
+                $msg->to($email, $username)->subject('Order confirmed');
+            });
             
-            $pdf=PDF::loadview('invoice',['invoice'=>$invoice,'trips'=>$trips,'finalprice'=>$finalprice,'Noofseats'=>$Noofseats]);
-            View('invoice')->with('invoice',$invoice)->with('trips',$trips)->with('finalprice',$finalprice)->with('Noofseats',$Noofseats);  
+            
+            $pdf=PDF::loadview('invoice',['invoice'=>$invoice,'trips'=>$trips,'finalprice'=>$finalprice,'Noofseats'=>$Noofseats,'discountedprice'=>$discountedprice,'priceperhead'=>$priceperhead,'time'=>$time]);
+            View('invoice')->with('invoice',$invoice)->with('trips',$trips)->with('finalprice',$finalprice)->with('Noofseats',$Noofseats)->with('time',$time);  
            return $pdf->stream('invoice.pdf'); 
     }
     public function generateinvoice(request $invoice){
