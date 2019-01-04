@@ -48,7 +48,7 @@
                     
                 </div>
             </div>
-            <table border="0" cellspacing="0" cellpadding="0">
+            <table border="1" cellspacing="0" cellpadding="0">
                 <thead>
                     <tr>
                         <th></th>
@@ -62,11 +62,11 @@
                 <tbody>
                     <tr>
                         <td class="no">01</td>
-                    <td class="text-left"><p>Location:{{$trips->location}} <br>Trip Date:{{$trips->start_date}}<br>Boat ID:{{$trips->boatid}} <br>Time{{$time}}</p></td> 
+                        <td class="text-left"><p>Location:{{$trips->location}} <br>Trip Date:{{$trips->start_date}}<br>Boat ID:{{$trips->boatid}} </p></td> 
                         <td class="qty">{{$Noofseats}}</td>
                     <td>{{$priceperhead}}</td>
                     {{-- <td class="unit">{{$discountedprice}}}</td> --}}
-                        <td class="total">USD {{$finalprice}}</td>
+                        <td class="total">{{$finalprice}}</td>
                     </tr>
                     
                 </tbody>
@@ -74,53 +74,24 @@
                     <tr>
                         <td colspan="2"></td>
                         <td colspan="2">Other Charges</td>
-                        <td>USD 0.00</td>
+                        <td>$0 X 0</td>
                     </tr>
                     <tr>
                         <td colspan="2"></td>
                         <td colspan="2">Discounted price</td>
-                        <td>USD {{$discountedprice}}</td>
+                        <td>{{$discountedprice}}</td>
                     </tr>
                     <tr>
                         <td colspan="2"></td>
                         <td colspan="2">GRAND TOTAL</td>
-                        <td>USD {{$finalprice}}</td>
+                        <td>{{$finalprice}}</td>
                     </tr>
                 </tfoot>
             </table>
             <div class="thanks">Thank you!</div>
             <div class="notices">
-
-                <div>
-                    <h3>Instruction to the customer</h3>
-                    
-                    <li>please be kind enough to produce the invoice at the check in</li>
-                    <li>please be arrived on site before the trip starting time</li>
-                    <li>payements wil not be refund under no circumstance</li>
-                    <li>you will be picked by our regional manager at the pickup points</li>
-                    <li>you can recognize the boats owned by us with the logo printed on the boats</li>
-                    <li>insuarance will be done for all passengers unless you have got a valid invoice</li>
-                </div>
-                <div class="notice" style="margin-top:50px">
-                    <p>Scan with a QR code scanner to get the exact location of  whale watching point</p>
-                    <div class="row">
-                        <div class="col-md-3"> 
-                            <p>mirissa</p>
-                            <img src="img/mirissa.png" alt="">
-                        </div>
-                       
-                        
-                    </div>
-                    <div class="row">
-                            <div class="col-md-3"> 
-                                <p>trincomale</p>
-                                <img src="img/tincomale.png" alt="">
-                            </div>
-                           
-                            
-                        </div>
-                   
-                </div>
+                <div>please be kind enough to produce the invoice at the check in</div>
+                <div class="notice"></div>
             </div>
         </main>
         <footer>

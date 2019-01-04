@@ -1,5 +1,7 @@
 @extends('layouts.userprofileboat')
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 @section('content')
 
 <div class="card col-md-8" style="margin-top:100px">
@@ -20,7 +22,7 @@
         <div class="col-md-offset-4">
             
             <form action="/endtrip">
-            <input type="hidden" value="{{$resid}}" name="res_id">
+            <input type="hidden" value="{{$resid}}" name="res_id" id="res_id">
                 <input type="submit" class="btn btn-success" value="End Trip" >
             </form>
           </div>
@@ -31,9 +33,12 @@
     </div>
   
   </div>
+  
 
 <div style="margin-top:100px;margin-left:-150px">
-
+    <div class="form-group">
+        <input type="text" name="search" id="search" class="form-control" placeholder="Search  Data" style="width:300px;">
+       </div>
     <table class="table">
            <thead class="black white-text">
              <tr>
@@ -51,7 +56,7 @@
              </tr>
            </thead>
            <tbody>
-                  @foreach($res_details as $res_details)
+                  {{-- @foreach($res_details as $res_details)
                          <tr>
                          <th >{{$res_details->fname}}</th>
                          <td>{{$res_details->lname}}</td>
@@ -66,7 +71,7 @@
                       
                          </tr>
                       
-                  @endforeach
+                  @endforeach --}}
            </tbody>
           
          </table>
@@ -74,4 +79,35 @@
         
 </div>
 
+<script>
+    $(document).ready(function(){
+   
+     fetch_customer_data();
+    
+     function fetch_customer_data(query = '')
+     {
+       var resid=$('#res_id').val();
+       
+      $.ajax({
+         
+       url:"live/action/",
+       method:'GET',
+       data:{query:query,resid:resid},
+       dataType:'json',
+       success:function(data)
+       {
+        $('tbody').html(data.table_data);
+        $('#total_records').text(data.total_data);
+       }
+      })
+     }
+    
+     $(document).on('keyup', '#search', function(){
+      
+      var query = $(this).val();
+
+      fetch_customer_data(query);
+     });
+    });
+    </script>
 @endsection
