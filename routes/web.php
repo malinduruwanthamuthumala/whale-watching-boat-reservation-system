@@ -95,4 +95,6 @@ Route::get('/getPDFcolombo', 'PDFController@getPDFcolombo');
 Route::get('/month', 'PDFController@month');
 
 Route::get('/displymonth', 'PDFController@displymonth');
-
+// Route::get('/live_search/action', 'AdminController@action')->name('live_search.action');
+Route::get('/live/action','TripController@action')->name('live.action');
+Route::get('/search_history','TripController@search_history');

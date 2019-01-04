@@ -6,13 +6,13 @@
 <script type="text/javascript" src="../../js/popper.min.js"></script>
 
 
-<div class="row" style="margin-top:100px">
+<div class="row" style="margin-top:100px;background-color:#154360 ;" id="intro1" >
 	<div class="col-md-1">
 		<div>
 			<p id="p"></p>
 		</div>
 	</div>
-	<div class="col-md-7">
+	<div class="col-md-7" style="padding-left:105px;padding-top:20px">
 			<form action="/invoice" method="post">
 				@csrf
 			   <div class="row">
@@ -27,10 +27,10 @@
 					<div class="col-md-4">
 						<div class="form-group">
 							{{-- first name --}}
-							<label for="" >First Name</label>
+							<label for="" class="text-white">First Name</label>
 							<div>
 							
-								<input type="text" name="first_name" class="form-control" id="fname">
+								<input type="text" name="first_name" class="form-control" id="fname" >
 								<p style="color:red" id="fname_error"></p>
 								{!! $errors->first('first_name','<p class="alert alert-danger">:message</p>')!!}
 							</div>
@@ -44,7 +44,7 @@
 						{{-- last name --}}
 						<div class="col-md-4">
 								<div class="form-group">
-									<label for="">Last Name</label>
+									<label for="" class="text-white">Last Name</label>
 									<div>
 										<input type="text" class="form-control" name="lname" id="lname">
 										<p style="color:red" id="lname_error"></p>
@@ -58,8 +58,8 @@
 
 						{{-- number of seats --}}
 						<div class="col-md-8">
-								<div class="form-group">
-									<label for="" id="lseats">number of seats</label>
+								<div class="form-group" >
+									<label for="" id="lseats" class="text-white">number of seats</label>
 									<div>
 										
 										
@@ -74,7 +74,7 @@
 						{{-- nic number --}}
 						<div class="col-md-8">
 								<div class="form-group">
-									<label for="">National Id Card Number</label>
+									<label for="" class="text-white">National Id Card Number or Pssport ID</label>
 									<div>
 										<input type="text" name="nic" class="form-control" id="nic">	
 										<p style="color:red" id="nic_error"></p>
@@ -89,7 +89,7 @@
 						{{-- Telephone number --}}
 						<div class="col-md-8">
 								<div class="form-group">
-									<label for="">Telephone number</label>
+									<label for="" class="text-white">Telephone number</label>
 									<div>
 										  <input type="text" class="form-control" name="telephone" id="tel">
 										  <p style="color:red" id="tel_error"></p>
@@ -107,7 +107,7 @@
 						{{-- email --}}
 						<div class="col-md-8">
 								<div class="form-group">
-									<label for="">email</label>
+									<label for="" class="text-white"	>email</label>
 									<div>
 										  <input type="email" class="form-control" name="email" id="email">
 										  <p style="color:red" id="email_error"></p>
@@ -313,7 +313,11 @@ if(x==1){
 });
 </script>
 
-
+<style>
+.abc{
+	
+}
+</style>
 <!-- Bootstrap core JavaScript -->
 {{-- <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->

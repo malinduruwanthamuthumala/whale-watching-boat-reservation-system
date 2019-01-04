@@ -25,19 +25,19 @@
     <style>
     body{
         overflow-x: hidden;
-        
+        background: 
     }
     </style>
     
 
 </head>
-</html>
 
 
 
 
 
-<body>
+
+<body  background="img/ww.jpeg">
     <div>
         {{-- navigation bar template --}}
 <div>
@@ -117,13 +117,13 @@
                                    Boat trips may not be available in certain days sorry for the inconvinence
                                 </div>
                 
-                                <div class="panel-body">
+                                <div class="panel-body text-white" style="background-color:white;opacity:0.8;color:white">
                                     {!! $calendar->calendar() !!}
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4"style="background-color:black;opacity:0.8;height:400px">
                                 <div class="">
                                         @if(Session::has('success'))
                                          <div class="alert alert-success">{{session::get('success')}}</div>
@@ -133,7 +133,7 @@
                                      </div>
                            <form action="/changloc" method="post">
                             @csrf
-                            <label>Select location</label>
+                            <label class="text-white">Select location</label>
                                 <select name="location" id="" class="form-control">
                                     <option value="all">ALL</option>
                                     <option value="mirissa">mirissa</option>
@@ -144,7 +144,7 @@
                                 
 						<div class="form-group">
 							{{-- number of seats --}}
-							<label for="seats" id="laseats">Number of seats</label>
+							<label for="seats" id="laseats" class="text-white">Number of seats</label>
 							<div>
                                 <h5 id="error" style="color:red"></h5>
 								<input type="text" name="seats" class="form-control" id="seats">
@@ -154,7 +154,7 @@
                         </div>
                         <div class="form-group">
                                 {{-- Boat type --}}
-                                <label for="boat type">Boat type</label>
+                                <label for="boat type" class="text-white">Boat type</label>
                                 
                                 <div>
                                 
