@@ -227,7 +227,7 @@ return [
         'CSVReport'   => Jimmyjs\ReportGenerator\Facades\CSVReportFacade::class,
         'PDF'         => Barryvdh\DomPDF\Facades::class,
         'Currency' => Senemoglu\Currency\Facades\Converter::class,
-
+        'Carbon' => 'Carbon\Carbon',
     ],
 
 ];

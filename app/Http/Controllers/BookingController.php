@@ -86,19 +86,19 @@ class BookingController extends Controller
             }
             elseif($boattype=="family"){
                $pricing=pricing_details::where('pricing_plan','family')->first(); 
-                $priceperhead=$pricing->price; 
+               $priceperhead=$pricing->price; 
                $discount=$pricing->discount;
                $initialprice=$priceperhead*$Noofseats;
-                $discountedprice=$initialprice*($discount/100);
-                $finalprice=$initialprice-$discountedprice;
+               $discountedprice=$initialprice*($discount/100);
+               $finalprice=$initialprice-$discountedprice;
             }
             elseif($boattype=="Normal"){
                 $pricing=pricing_details::where('pricing_plan','normal')->first(); 
                 $priceperhead=$pricing->price; 
-                 $discount=$pricing->discount;
+                $discount=$pricing->discount;
                 $initialprice=$priceperhead*$Noofseats;
                 $discountedprice=$initialprice*($discount/100);
-                 $finalprice=$initialprice-$discountedprice;
+                $finalprice=$initialprice-$discountedprice;
             }
             
             // $initialprice=$priceperhead*$Noofseats;
@@ -125,12 +125,12 @@ class BookingController extends Controller
             
             $pdf=PDF::loadview('invoice',['invoice'=>$invoice,'trips'=>$trips,'finalprice'=>$finalprice,'Noofseats'=>$Noofseats,'discountedprice'=>$discountedprice,'priceperhead'=>$priceperhead,'time'=>$time]);
             View('invoice')->with('invoice',$invoice)->with('trips',$trips)->with('finalprice',$finalprice)->with('Noofseats',$Noofseats)->with('time',$time);  
-           return $pdf->stream('invoice.pdf'); 
+            return $pdf->stream('invoice.pdf'); 
     }
     public function generateinvoice(request $invoice){
-        return $invoice;
-        $pdf = PDF::loadView('invoice');
-        return $pdf ->stream('invoice.pdf');
+            return $invoice;
+            $pdf = PDF::loadView('invoice');
+            return $pdf ->stream('invoice.pdf');
 }
 
     /**
@@ -147,13 +147,13 @@ class BookingController extends Controller
        $boat=boats::where('boatid',$boatid)->first();
        $boattype=$boat->boattype;
        if($boattype=="luxury"){
-          $price=pricing_details::where('pricing_plan',$boattype)->first();
+            $price=pricing_details::where('pricing_plan',$boattype)->first();
        }
-    elseif($boattype=="family"){
-        $price=pricing_details::where('pricing_plan',$boattype)->first();
-    }
-    elseif($boattype=="Normal"){
-          $price=pricing_details::where('pricing_plan',$boattype)->first();
+       elseif($boattype=="family"){
+            $price=pricing_details::where('pricing_plan',$boattype)->first();
+       }
+       elseif($boattype=="Normal"){
+            $price=pricing_details::where('pricing_plan',$boattype)->first();
     }
        return view('reservation.pricing')->with('reservationdetails',$date)->with('pricing',$price)->with('boattype',$boattype);
 
@@ -195,7 +195,5 @@ class BookingController extends Controller
     }
 
 
-    public function startbooking(request $request){
-        return "hello world";
-    }
+ 
 }

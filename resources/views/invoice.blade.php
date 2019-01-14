@@ -66,7 +66,7 @@
                         <td class="qty">{{$Noofseats}}</td>
                     <td>{{$priceperhead}}</td>
                     {{-- <td class="unit">{{$discountedprice}}}</td> --}}
-                        <td class="total">USD {{$finalprice}}</td>
+                    <td class="total">USD {{$priceperhead}}*{{$Noofseats}}</td>
                     </tr>
                     
                 </tbody>
@@ -114,6 +114,7 @@
                     <div class="row">
                             <div class="col-md-3"> 
                                 <p>trincomale</p>
+                                
                                 <img src="img/tincomale.png" alt="">
                             </div>
                            

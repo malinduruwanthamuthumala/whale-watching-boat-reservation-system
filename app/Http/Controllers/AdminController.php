@@ -32,8 +32,7 @@ class AdminController extends Controller
    }
    public function setconfirmation(request $request){
     $id=$request->input('id');
-     $details=boats::where('boatid',$id)->first();
-
+    $details=boats::where('boatid',$id)->first();
     $details->status="confirmed";
     $details->update();
     return redirect('/confirmboat')->with('success','Boat successfully confirmed');
@@ -42,60 +41,55 @@ class AdminController extends Controller
 
    public function set_price(){
     $price=pricing_details::all();
-      return view('adminfunctions.setprice')->with('pricing',$price);
+    return view('adminfunctions.setprice')->with('pricing',$price);
    }
 
    public function  update_pricing(request $request){
-       $id=$request->input('id');
-     
-      $pricing=pricing_details::where('pricing_id',$id)->first();
-      $prices=$request->input('price');
-     $pricing->price=$prices;
-         $pricing->update();
-      
-
-      return redirect('set_price')->with('success','pricing plan successfully updated');
+    $id=$request->input('id');
+    $pricing=pricing_details::where('pricing_id',$id)->first();
+    $prices=$request->input('price');
+    $pricing->price=$prices;
+    $pricing->update();
+    return redirect('set_price')->with('success','pricing plan successfully updated');
    }
    public function update_discounts(request $request){
-      $id=$request->input('id');
-     
-      $pricing=pricing_details::where('pricing_id',$id)->first();
-      $discount=$request->input('discount');
-     $pricing->discount=$discount;
-         $pricing->update();
-         return redirect('set_price')->with('success','pricing plan successfully updated');
+    $id=$request->input('id');
+    $pricing=pricing_details::where('pricing_id',$id)->first();
+    $discount=$request->input('discount');
+    $pricing->discount=$discount;
+    $pricing->update();
+    return redirect('set_price')->with('success','pricing plan successfully updated');
       
    }
    public function admin_payement_info(){
-       $payement=payment::orderBy('updated_at', 'desc')->paginate(6);
-      return view('adminfunctions.payement_info')->with('payements',$payement);
+    $payement=payment::orderBy('updated_at', 'desc')->paginate(6);
+    return view('adminfunctions.payement_info')->with('payements',$payement);
    }
    public function searchpayement(request $request){
-     $stdate=$request->input('stdate');
-     $enddate=$request->input('enddate');
-     $payement = DB::select("SELECT * FROM payments WHERE updated_at BETWEEN '$stdate' AND '$enddate'");
-     return view('adminfunctions.payement_info_search')->with('payements',$payement);
+    $stdate=$request->input('stdate');
+    $enddate=$request->input('enddate');
+    $payement = DB::select("SELECT * FROM payments WHERE updated_at BETWEEN '$stdate' AND '$enddate'");
+    return view('adminfunctions.payement_info_search')->with('payements',$payement);
    }
 
    public function payinfo(){
-     $invoice=invoice::all()->pluck('price')->toArray();
-      $totalcashflow=0;
-      foreach($invoice as $cash){
-         $totalcashflow=$totalcashflow+$cash;  
-      }
-      
-       $cashpaid=payment::all()->pluck('payement_amount')->toArray();
-       $revenue=payment::all()->pluck('revenue')->toArray();
-       $totalcashpaid=0;
-       $totalrevenuegained=0;
+    $invoice=invoice::all()->pluck('price')->toArray();
+    $totalcashflow=0;
+    foreach($invoice as $cash){
+        $totalcashflow=$totalcashflow+$cash;  
+    }
+    $cashpaid=payment::all()->pluck('payement_amount')->toArray();
+    $revenue=payment::all()->pluck('revenue')->toArray();
+    $totalcashpaid=0;
+    $totalrevenuegained=0;
        
-      foreach( $cashpaid as  $cashpaid){
-      $totalcashpaid= $totalcashpaid+$cashpaid;
-   }
+    foreach( $cashpaid as  $cashpaid){
+        $totalcashpaid= $totalcashpaid+$cashpaid;
+    }
   
 
    foreach( $revenue as  $revenue){
-      $totalrevenuegained= $totalrevenuegained+$revenue;
+        $totalrevenuegained= $totalrevenuegained+$revenue;
    }
    
    return view('adminfunctions.cashflow')->with('totalcashflow', $totalcashflow)->with('totalrevenuegained',$totalrevenuegained)
@@ -103,21 +97,21 @@ class AdminController extends Controller
    }
 
    public function ongoing_reserve_admin(){
-      $trips=trips::orderBy('end_date', 'desc')->paginate(6);
-      return view('adminfunctions.ongoing_reserve')->with('trip',$trips);
+    $trips=trips::orderBy('end_date', 'desc')->paginate(6);
+    return view('adminfunctions.ongoing_reserve')->with('trip',$trips);
 
 
    }
    
-      function index()
-      {
-       return view('adminfunctions.searchboats');
-      }
+    function index()
+    {
+        return view('adminfunctions.searchboats');
+    }
   
-      function action(Request $request)
-      {
-       if($request->ajax())
-       {
+    function action(Request $request)
+    {
+     if($request->ajax())
+        {
         $output = '';
         $query = $request->get('query');
         if($query != '')
@@ -184,83 +178,77 @@ class AdminController extends Controller
        
             
             
-         $year=$request->input('year');
+    $year=$request->input('year');
+    $startjan="$year-01-01";
+    $endjan="$year-01-31";
+    $boatstripjan = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startjan' AND '$endjan'");
+    $jantotal=0;
+    foreach($boatstripjan as $boatstripjan){
+        $jantotal=$jantotal+$boatstripjan->payement_amount+$boatstripjan->revenue;
+    }
+    $startfeb="$year-02-01";
+    $endfeb="$year-02-31";
+    $boatstripfeb =DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startfeb' AND '$endfeb'");
+    $febtotal=0;
+    foreach($boatstripfeb as $boatstripfeb){
+        $febtotal=$febtotal+$boatstripfeb->payement_amount+$boatstripfeb->revenue;
+    }
     
-            $startjan="$year-01-01";
-            $endjan="$year-01-31";
-           $boatstripjan = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startjan' AND '$endjan'");
-            $jantotal=0;
-            foreach($boatstripjan as $boatstripjan){
-                $jantotal=$jantotal+$boatstripjan->payement_amount+$boatstripjan->revenue;
-
-            }
+    $startmarch="$year-03-01";
+    $endmarch="$year-03-31";
+    $boatstripmarch =DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startmarch' AND '$endmarch'");
+    $marchtotal=0;
+    foreach($boatstripmarch as $boatstripmarch){
+        $marchtotal=$marchtotal+$boatstripmarch->payement_amount+$boatstripmarch->revenue;
+    }
     
+    $startapr="$year-04-01";
+    $endapr="$year-04-31";
+    $boatstripapr = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startapr' AND '$endapr'");
+    $aprtotal=0;
+    foreach($boatstripapr as $boatstripapr){
+        $aprtotal=$aprtotal+$boatstripapr->payement_amount+$boatstripapr->revenue;
+    }
     
-            $startfeb="$year-02-01";
-            $endfeb="$year-02-31";
-            $boatstripfeb =DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startfeb' AND '$endfeb'");
-            $febtotal=0;
-            foreach($boatstripfeb as $boatstripfeb){
-                $febtotal=$febtotal+$boatstripfeb->payement_amount+$boatstripfeb->revenue;
-            }
+    $startmay="$year-05-01";
+    $endmay="$year-05-31";
+    $boatstripmay = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startmay' AND '$endmay'");
+    $maytotal=0;
+    foreach($boatstripmay as $boatstripmay){
+        $maytotal=$maytotal+$boatstripmay->payement_amount+$boatstripmay->revenue;
+    }
     
-            $startmarch="$year-03-01";
-            $endmarch="$year-03-31";
-            $boatstripmarch =DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startmarch' AND '$endmarch'");
-            $marchtotal=0;
-            foreach($boatstripmarch as $boatstripmarch){
-                $marchtotal=$marchtotal+$boatstripmarch->payement_amount+$boatstripmarch->revenue;
-            }
+    $startjune="$year-06-01";
+    $endjune="$year-06-31";
+    $boatstripjune = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startjune' AND '$endjune'");
+    $junetotal=0;
+    foreach($boatstripjune as $boatstripjune){
+        $junetotal=$junetotal+$boatstripjune->payement_amount+$boatstripjune->revenue;
+    }
     
-            $startapr="$year-04-01";
-            $endapr="$year-04-31";
-            $boatstripapr = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startapr' AND '$endapr'");
-            $aprtotal=0;
-            foreach($boatstripapr as $boatstripapr){
-                $aprtotal=$aprtotal+$boatstripapr->payement_amount+$boatstripapr->revenue;
-            }
+    $startjul="$year-07-01";
+    $endjul="$year-07-31";
+    $boatstripjul = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startjul' AND '$endjul'");
+    $jultotal=0;
+    foreach($boatstripjul as $boatstripjul){
+        $jultotal=$jultotal+$boatstripjul->payement_amount+$boatstripjul->revenue;
+    }
     
-            $startmay="$year-05-01";
-            $endmay="$year-05-31";
-            $boatstripmay = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startmay' AND '$endmay'");
-            $maytotal=0;
-            foreach($boatstripmay as $boatstripmay){
-                $maytotal=$maytotal+$boatstripmay->payement_amount+$boatstripmay->revenue;
-            }
-    
-           
-    
-            $startjune="$year-06-01";
-            $endjune="$year-06-31";
-            $boatstripjune = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startjune' AND '$endjune'");
-            $junetotal=0;
-            foreach($boatstripjune as $boatstripjune){
-                $junetotal=$junetotal+$boatstripjune->payement_amount+$boatstripjune->revenue;
-            }
-    
-            $startjul="$year-07-01";
-            $endjul="$year-07-31";
-           $boatstripjul = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startjul' AND '$endjul'");
-            $jultotal=0;
-            foreach($boatstripjul as $boatstripjul){
-                $jultotal=$jultotal+$boatstripjul->payement_amount+$boatstripjul->revenue;
-            }
-    
-            $startaug="$year-08-01";
-            $endaug="$year-08-31";
-            $boatstripaug =DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startaug' AND '$endaug'");
-            $augtotal=0;
-            foreach($boatstripaug as $boatstripaug){
-                $augtotal=$augtotal+$boatstripaug->payement_amount+$boatstripaug->revenue;
-            }
+    $startaug="$year-08-01";
+    $endaug="$year-08-31";
+    $boatstripaug =DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startaug' AND '$endaug'");
+    $augtotal=0;
+    foreach($boatstripaug as $boatstripaug){
+        $augtotal=$augtotal+$boatstripaug->payement_amount+$boatstripaug->revenue;
+    }
         
-            $startsep="$year-09-01";
-            $endsep="$year-09-31";
-            $boatstripsep = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startsep' AND '$endsep'");
-            $septotal=0;
-            foreach($boatstripsep as $boatstripsep){
-                $septotal=$septotal+$boatstripsep->payement_amount+$boatstripsep->revenue;
-            }
+    $startsep="$year-09-01";
+    $endsep="$year-09-31";
+    $boatstripsep = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startsep' AND '$endsep'");
+    $septotal=0;
+    foreach($boatstripsep as $boatstripsep){
+        $septotal=$septotal+$boatstripsep->payement_amount+$boatstripsep->revenue;
+    }
     
     
             // $startoct="$year-10-01";
@@ -270,49 +258,47 @@ class AdminController extends Controller
             // foreach($boatstripoct as $boatstripdoct){
             //     $octtotal=$octtotal+$boatstripoct->payement_amount;
             // }
-            $startoct="$year-10-01";
-            $endoct="$year-10-31";
-            $boatstripoct = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startoct' AND '$endoct'");
-            $octtotal=0;
-            foreach($boatstripoct as $boatstripoct){
-                $octtotal=$octtotal+$boatstripoct->payement_amount+$boatstripoct->revenue;
-            }
+    $startoct="$year-10-01";
+    $endoct="$year-10-31";
+    $boatstripoct = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startoct' AND '$endoct'");
+    $octtotal=0;
+    foreach($boatstripoct as $boatstripoct){
+        $octtotal=$octtotal+$boatstripoct->payement_amount+$boatstripoct->revenue;
+    }
     
-            $startnove="$year-11-01";
-            $endnove="$year-12-31";
-            $boatstripnove =DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startnove' AND '$endnove'");
-            $novtotal=0;
-            foreach($boatstripnove as $boatstripnove){
-                $novtotal=$novtotal+$boatstripnove->payement_amount+$boatstripnove->revenue;
-            }
+    $startnove="$year-11-01";
+    $endnove="$year-12-31";
+    $boatstripnove =DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startnove' AND '$endnove'");
+    $novtotal=0;
+    foreach($boatstripnove as $boatstripnove){
+        $novtotal=$novtotal+$boatstripnove->payement_amount+$boatstripnove->revenue;
+    }
     
     
     
-            $startdec="$year-12-01";
-            $enddec="$year-12-31";
-       $boatstripdec =DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startdec' AND '$enddec'");
-           
-           $dectotal=0;
-            foreach($boatstripdec as $boatstripdec){
-                $dectotal=$dectotal+$boatstripdec->payement_amount+$boatstripdec->revenue;
-            }
+    $startdec="$year-12-01";
+    $enddec="$year-12-31";
+    $boatstripdec =DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startdec' AND '$enddec'");
+    $dectotal=0;
+    foreach($boatstripdec as $boatstripdec){
+        $dectotal=$dectotal+$boatstripdec->payement_amount+$boatstripdec->revenue;
+    }
             
     
-            return view('adminfunctions.annual_earning_display')->with('dectotal',$dectotal)->with('jantotal',$jantotal)->with('febtotal',$febtotal)->with('marchtotal',$marchtotal)
-            ->with('aprtotal',$aprtotal)->with('maytotal',$maytotal)->with('junetotal',$junetotal)->with('jultotal',$jultotal)->with('augtotal',$augtotal)
-            ->with('septotal',$septotal)->with('octtotal',$octtotal)->with('novtotal',$novtotal);  
-        }
+    return view('adminfunctions.annual_earning_display')->with('dectotal',$dectotal)->with('jantotal',$jantotal)->with('febtotal',$febtotal)->with('marchtotal',$marchtotal)
+    ->with('aprtotal',$aprtotal)->with('maytotal',$maytotal)->with('junetotal',$junetotal)->with('jultotal',$jultotal)->with('augtotal',$augtotal)
+    ->with('septotal',$septotal)->with('octtotal',$octtotal)->with('novtotal',$novtotal);  
+    }
       
-        public function earning_reports_revenue(request $request){
-         $year=$request->input('year');
-    
-         $startjan="$year-01-01";
-         $endjan="$year-01-31";
+    public function earning_reports_revenue(request $request){
+        $year=$request->input('year');
+        $startjan="$year-01-01";
+        $endjan="$year-01-31";
         $boatstripjan = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startjan' AND '$endjan'");
-         $jantotal=0;
-         foreach($boatstripjan as $boatstripjan){
-             $jantotal=$jantotal+$boatstripjan->revenue;
-         }
+        $jantotal=0;
+        foreach($boatstripjan as $boatstripjan){
+            $jantotal=$jantotal+$boatstripjan->revenue;
+        }
  
  
          $startfeb="$year-02-01";
@@ -336,7 +322,7 @@ class AdminController extends Controller
          $boatstripapr = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startapr' AND '$endapr'");
          $aprtotal=0;
          foreach($boatstripapr as $boatstripapr){
-             $aprtotal=$aprtotal+$boatstripapr->revenue;
+            $aprtotal=$aprtotal+$boatstripapr->revenue;
          }
  
          $startmay="$year-05-01";
@@ -344,7 +330,7 @@ class AdminController extends Controller
          $boatstripmay = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startmay' AND '$endmay'");
          $maytotal=0;
          foreach($boatstripmay as $boatstripmay){
-             $maytotal=$maytotal+$boatstripmay->revenue;
+            $maytotal=$maytotal+$boatstripmay->revenue;
          }
  
         
@@ -359,7 +345,7 @@ class AdminController extends Controller
  
          $startjul="$year-07-01";
          $endjul="$year-07-31";
-        $boatstripjul = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startjul' AND '$endjul'");
+         $boatstripjul = DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startjul' AND '$endjul'");
          $jultotal=0;
          foreach($boatstripjul as $boatstripjul){
              $jultotal=$jultotal+$boatstripjul->revenue;
@@ -409,9 +395,8 @@ class AdminController extends Controller
  
          $startdec="$year-12-01";
          $enddec="$year-12-31";
-    $boatstripdec =DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startdec' AND '$enddec'");
-        
-        $dectotal=0;
+         $boatstripdec =DB::select("SELECT * FROM payments WHERE Enddate BETWEEN '  $startdec' AND '$enddec'");
+         $dectotal=0;
          foreach($boatstripdec as $boatstripdec){
              $dectotal=$dectotal+$boatstripdec->revenue;
          }
@@ -420,5 +405,9 @@ class AdminController extends Controller
          return view('adminfunctions.annual_earning_display')->with('dectotal',$dectotal)->with('jantotal',$jantotal)->with('febtotal',$febtotal)->with('marchtotal',$marchtotal)
          ->with('aprtotal',$aprtotal)->with('maytotal',$maytotal)->with('junetotal',$junetotal)->with('jultotal',$jultotal)->with('augtotal',$augtotal)
          ->with('septotal',$septotal)->with('octtotal',$octtotal)->with('novtotal',$novtotal);  
+        }
+        public function view_user(){
+            $user=user::all();
+            return view('adminfunctions.userpage')->with('user',$user);
         }
    }

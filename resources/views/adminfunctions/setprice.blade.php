@@ -6,9 +6,9 @@
     <table class="table">
            <thead class="black white-text">
              <tr>
-               <th scope="col">Payement Id</th>
-               <th scope="col">pricing plan</th>
-               <th scope="col">price</th>
+               <th scope="col">Payment ID</th>
+               <th scope="col">Pricing Plan</th>
+               <th scope="col">Price</th>
               
               
                <th></th>
@@ -63,8 +63,8 @@
          <table class="table">
                 <thead class="black white-text">
                   <tr>
-                    <th scope="col">Payement Id</th>
-                    <th scope="col">pricing plan</th>
+                    <th scope="col">Payement ID</th>
+                    <th scope="col">Pricing Plan</th>
                     <th scope="col">Discounts</th>
                    
                    

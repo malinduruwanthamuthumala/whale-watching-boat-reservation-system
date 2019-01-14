@@ -119,9 +119,24 @@ class TripController extends Controller
 
     public function payement_details(){
         $id=auth()->user()->id;
-       $payement_details=payment::where('boatowner_id',$id)->where('status','not transfered')->get();
+       $payement_details=payment::where('boatowner_id',$id)->where('status','pay')->get();
        return view('boatownerfunctions.payement_details')->with('payement_details',$payement_details);
     }
+
+    public function payement_details_admin(){
+        $id=auth()->user()->id;
+      $payement_details=payment::where('status','not transfered')->get();
+       return view('adminfunctions.payement_details')->with('payement_details',$payement_details);
+    }
+    public function pay(request $request){
+        $payementid=$request->input('payid');
+        
+        $payement=payment::where('payementid',$payementid)->first();
+         $payement->status="pay";
+         $payement->update();
+         return redirect('/payement_details_admin')->with('success','Trip succesfully ended');
+    }
+
 
     public function payement_history(request $request){
         $payementid=$request->input('payid');

@@ -40,16 +40,21 @@
         <aside class="main_sidebar">
             <ul style="margin-top:100px">
                 <li><i class="fa fa-arrows"></i><a href="/confirmboat">Confirm Boat Registration</a></li>
-                <li><i class="fa fa-battery-2"></i><a href="/set_price">Set prices</a></li>
+                <li><i class="fa fa-battery-2"></i><a href="/set_price">Set Prices</a></li>
                
                 
-                <li><i class="fa fa-circle"></i><a href="/payinfo">payement info</a></li>
-                <li><i class="fa fa-crosshairs"></i><a href="/admin_payement_info">Transaction history</a></li>
+                <li><i class="fa fa-circle"></i><a href="/payinfo">Cash Flow Information</a></li>
+                <li><i class="fa fa-crosshairs"></i><a href="/admin_payement_info">Transaction History</a></li>
                 <li><i class="fa fa-deaf"></i><a href="/ongoing_reserve_admin">View Ongoing Reservations</a></li>
-                <li><i class="fa fa-desktop"></i><a href="/live_search">view boats details</a></li>
+                <li><i class="fa fa-desktop"></i><a href="/live_search">View Boats Details</a></li>
                 <li><i class="fa fa-desktop"></i><a href="/reports">Generate Reports</a></li>
-                <li><i class="fa fa-desktop"></i><a href="/reports_annual">Generate cashflow Reports </a></li>
-                <li><i class="fa fa-desktop"></i><a href="/reports_revenue_annual">Generate revenue Reports </a></li>
+                <li><i class="fa fa-desktop"></i><a href="/reports_annual">Generate Cashflow Reports </a></li>
+                <li><i class="fa fa-desktop"></i><a href="/reports_revenue_annual">Generate Revenue Reports </a></li>
+                <li><i class="fa fa-desktop"></i><a href="/show">View Feedback From The Customers </a></li>
+                <li><i class="fa fa-desktop"></i><a href="/user_details">View Registered Users </a></li>
+                <li><i class="fa fa-desktop"></i><a href="/payement_details_admin">Payment Confirmation </a></li>
+          
+                
                
                 
                 

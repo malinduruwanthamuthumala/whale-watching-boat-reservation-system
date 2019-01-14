@@ -8,10 +8,10 @@
             <table class="table" border="1">
                     <thead class="thead-dark">
                         <tr>
-                            <th>NAME</th>
+                            <th>Name</th>
                             <th>Location</th>
-                            <th>Number of seats</th>
-                            <th>status</th>
+                            <th>Number Of Seats</th>
+                            <th>Status</th>
                             
                             <th>Delete Boat</th>
                             

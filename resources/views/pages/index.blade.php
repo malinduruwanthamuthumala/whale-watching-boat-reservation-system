@@ -99,69 +99,51 @@ background-image: url('img/bb.jpeg'); height:600px;width:100%" >
 
 
 
-<div id="boxthree"  style="background-image: url('img/n.jpg'); height:1400px;width:100%">
-    <div class="container">
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                    <!-- Card Narrower -->
-<div class="card card-cascade narrower">
+<div id="boxthree"  style="background-image: url('img/n.jpg'); height:1000px;width:100%">
 
-        <!-- Card image -->
-        <div class="view view-cascade overlay">
-          <img  class="card-img-top" src="img/speedboat.jpg" alt="Card image cap">
-          <a>
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-      
-        <!-- Card content -->
-        <div class="card-body card-body-cascade">
-      
-          <!-- Label -->
-          <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i>Royal Tours Mirissa</h5>
-          <!-- Title -->
-          <h4 class="font-weight-bold card-title">Speed Boat Whale Tour</h4>
-          <!-- Text -->
-          <p class="card-text">
-                Watching tour that reduce travelling time and increases Watching time. 
-                it's unique private tour and you can enjoy much than shared tour.
-          </p>
-          <p class="card-text">
-              <ul>
-                <li>Passenger Capacity: 5max</li>
-                <li>Maximum Speed:30knots</li>
-                <li>Tour Time:2Hours</li>
-                <li>Tea,Coffee,Breakfast/Water Included</li>
-                </ul>
-                </p>
-          <!-- Button -->
-          <a class="btn btn-unique">Button</a>
-      
-        </div>
-      
-      </div>
-     
-</div>
-            
-            
-            <div class="col-md-6">
-                                        <!-- Card Narrower -->
-                    <div class="card card-cascade narrower">
+    <section class="pricing py-5">
+            <div class="container">
+              <div class="row">
+                <!-- Free Tier -->
+                <div class="col-lg-4">
+                  <div class="card mb-5 mb-lg-0">
+                    <div class="card-body">
+                        <div>
+                            <img  class="card-img-top" src="img/speedboat.jpg" alt="Card image cap">
+                        </div>
+                      <h5 class="card-title text-muted text-uppercase text-center"></h5>
+                      <h6 class="card-price text-center">USD 150<span class="period">for whole boat</span></h6>
+                      <hr>
+                      <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i>Royal Tours Mirissa</h5>
+                      <!-- Title -->
+                      <h4 class="font-weight-bold card-title">Normal Boat Whale Tour</h4>
+                      <!-- Text -->
+                      <p class="card-text">
+                              You can feel the beauty of the ocean and can observe whales/dolphins in a close view.
+                              This will good for you to spend your leisure time meaningfully
+                      </p>
+                      <p class="card-text">
+                              <li>Passenger Capacity: 50max</li>
+                              <li>Maximum Speed:12knots</li>
+                              <li>Tour Time:5Hours</li>
+                              <li>Breakfast/Water Included</li>
 
-                            <!-- Card image -->
-                            <div class="view view-cascade overlay">
-                            <img  class="card-img-top" src="img/normalboat.jpg" alt="Card image cap">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                            </div>
-                        
-                            <!-- Card content -->
-                            <div class="card-body card-body-cascade">
-                        
-                            <!-- Label -->
-                            <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i>Royal Tours Mirissa</h5>
+                              </p>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- Plus Tier -->
+                <div class="col-lg-4">
+                  <div class="card mb-5 mb-lg-0">
+                    <div class="card-body">
+                        <div>
+                                <img  class="card-img-top" src="img/normalboat.jpg" alt="Card image cap">
+                        </div>
+                     
+                      <h6 class="card-price text-center">USD24<span class="period">/per head</span></h6>
+                      <hr>
+                      <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i>Royal Tours Mirissa</h5>
                             <!-- Title -->
                             <h4 class="font-weight-bold card-title">Normal Boat Whale Tour</h4>
                             <!-- Text -->
@@ -177,34 +159,22 @@ background-image: url('img/bb.jpeg'); height:600px;width:100%" >
     
                                     </p>
                             <!-- Button -->
-                            <a class="btn btn-unique">Button</a>
-                        
-                            </div>
-                        
+                            
+                    
+                    </div>
+                  </div>
+                </div>
+                <!-- Pro Tier -->
+                <div class="col-lg-4">
+                  <div class="card">
+                    <div class="card-body">
+                        <div>
+                                <img  class="card-img-top" src="img/luxuryboat.jpg" alt="Card image cap"> 
                         </div>
-                        <!-- Card Narrower -->
-                
-
-        </div>
-        
-        <div class="row" style="margin-top:20px">
-                <div class="col-md-6">
-                        
-                              <!-- Card Narrower -->
-                    <div class="card card-cascade narrower">
-
-                            <!-- Card image -->
-                            <div class="view view-cascade overlay">
-                            <img  class="card-img-top" src="img/luxuryboat.jpg" alt="Card image cap">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                            </div>
-                        
-                            <!-- Card content -->
-                            <div class="card-body card-body-cascade">
-                        
-                            <!-- Label -->
+                      
+                      <h6 class="card-price text-center">USD 32<span class="period">/per head</span></h6>
+                      <hr>
+                      
                             <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i>Royal Tours Mirissa</h5>
                             <!-- Title -->
                             <h4 class="font-weight-bold card-title">Luxury Boat Whale Tour</h4>
@@ -218,22 +188,16 @@ background-image: url('img/bb.jpeg'); height:600px;width:100%" >
                                     <li>Maximum Speed:20knots</li>
                                     <li>Tour Time:10Hours</li>
                                     <li>Breakfast,Lunch,Dinner/Water Included</li>
+                                    <li>welcome drink/Water Included</li>
                                     </p>
-                            <!-- Button -->
-                            <a class="btn btn-unique">Button</a>
-                        
-                            </div>
-                        
-                        </div>
-                        <!-- Card Narrower -->
+                      
+                    
+                    </div>
+                  </div>
                 </div>
-                
-                
-              
-    
+              </div>
             </div>
-
-    </div>
+          </section>
 </div>
 
 
@@ -379,5 +343,66 @@ background-image: url('img/bb.jpeg'); height:600px;width:100%" >
         .customimg{
            
         }
-        
+        section.pricing {
+ 
+ 
+}
+
+.pricing .card {
+  border: none;
+  border-radius: 1rem;
+  transition: all 0.2s;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.pricing hr {
+  margin: 1.5rem 0;
+}
+
+.pricing .card-title {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+}
+
+.pricing .card-price {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.pricing .card-price .period {
+  font-size: 0.8rem;
+}
+
+.pricing ul li {
+  margin-bottom: 1rem;
+}
+
+.pricing .text-muted {
+  opacity: 0.7;
+}
+
+.pricing .btn {
+  font-size: 80%;
+  border-radius: 5rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1rem;
+  opacity: 0.7;
+  transition: all 0.2s;
+}
+
+/* Hover Effects on Card */
+
+@media (min-width: 992px) {
+  .pricing .card:hover {
+    margin-top: -.25rem;
+    margin-bottom: .25rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+  }
+  .pricing .card:hover .btn {
+    opacity: 1;
+  }
+}
 </style>

@@ -6,14 +6,14 @@
 <script type="text/javascript" src="../../js/popper.min.js"></script>
 
 
-<div class="row" style="margin-top:100px;background-color:#154360 ;" id="intro1" >
+<div class="row" style="margin-top:100px; " id="intro1" >
 	<div class="col-md-1">
 		<div>
 			<p id="p"></p>
 		</div>
 	</div>
-	<div class="col-md-7" style="padding-left:105px;padding-top:20px">
-			<form action="/invoice" method="post">
+	<div class="col-md-7" style="padding-left:105px;padding-top:20px;">
+			<form action="/invoice" method="post" style="margin-left:100px;margin-top:50px">
 				@csrf
 			   <div class="row">
 				   <div class="col-md-12">
@@ -27,7 +27,7 @@
 					<div class="col-md-4">
 						<div class="form-group">
 							{{-- first name --}}
-							<label for="" class="text-white">First Name</label>
+							<label for="" class="">First Name</label>
 							<div>
 							
 								<input type="text" name="first_name" class="form-control" id="fname" >
@@ -44,7 +44,7 @@
 						{{-- last name --}}
 						<div class="col-md-4">
 								<div class="form-group">
-									<label for="" class="text-white">Last Name</label>
+									<label for="" class="">Last Name</label>
 									<div>
 										<input type="text" class="form-control" name="lname" id="lname">
 										<p style="color:red" id="lname_error"></p>
@@ -59,7 +59,7 @@
 						{{-- number of seats --}}
 						<div class="col-md-8">
 								<div class="form-group" >
-									<label for="" id="lseats" class="text-white">number of seats</label>
+									<label for="" id="lseats" class="">Number Of Seats</label>
 									<div>
 										
 										
@@ -74,7 +74,7 @@
 						{{-- nic number --}}
 						<div class="col-md-8">
 								<div class="form-group">
-									<label for="" class="text-white">National Id Card Number or Pssport ID</label>
+									<label for="" class="">National ID Card Number or Passport ID</label>
 									<div>
 										<input type="text" name="nic" class="form-control" id="nic">	
 										<p style="color:red" id="nic_error"></p>
@@ -89,7 +89,7 @@
 						{{-- Telephone number --}}
 						<div class="col-md-8">
 								<div class="form-group">
-									<label for="" class="text-white">Telephone number</label>
+									<label for="" class="">Telephone Number</label>
 									<div>
 										  <input type="text" class="form-control" name="telephone" id="tel">
 										  <p style="color:red" id="tel_error"></p>
@@ -107,7 +107,7 @@
 						{{-- email --}}
 						<div class="col-md-8">
 								<div class="form-group">
-									<label for="" class="text-white"	>email</label>
+									<label for="" class=""	>email</label>
 									<div>
 										  <input type="email" class="form-control" name="email" id="email">
 										  <p style="color:red" id="email_error"></p>
@@ -145,14 +145,15 @@
 					<div class="card-body">
 				  
 					  <!-- Title -->
-					<h3>price per head: $ {{$pricing->price}}.00</h3>
-					  <p>Number of seats: <span id="numseats"></span> </p>
+					<h3 style="background-color:black;color:white">Seats available:{{$reservationdetails->availableseats}}</h3> 
+					<h3>Price Per Head: $ {{$pricing->price}}.00</h3>
+					  <p>Number Of Seats: <span id="numseats"></span> </p>
 					  <p>Total : USD <span id="tot"></span></p>
 					<p><b>Discounts:{{$pricing->discount}}%</b></p>
-					  <p><b>Final payement: USD <span id="price"></span></b><p>
+					  <p><b>Final payment: USD <span id="price"></span></b><p>
 					 
 
-						<ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
+						<ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist" sty>
 							<li class="nav-item">
 								<a class="nav-link active" data-toggle="pill" href="#nav-tab-card">
 								<i class="fa fa-credit-card"></i> Credit Card</a></li>
@@ -227,8 +228,15 @@ $(document).ready(function(){
 			
 		var discont=$('#disc').val();
 		var priceperhead=$('#priceperhead').val();
-		var discountedprice=priceperhead*(discont/100);
-		var tot=priceperhead-discountedprice;
+			// alert('abcd');
+		var availableseats=parseInt($('#available_seats').val(),10);
+		//  alert(availableseats);
+		 var seats=parseInt($('#seats').val(),10);
+		var price=seats*priceperhead;
+		
+		var discountedprice=price*(discont/100);
+		var tot=price-discountedprice;
+		
 		$("#price").text('$'+  tot);
 			
 	}
@@ -242,7 +250,7 @@ $(document).ready(function(){
 		 var a=availableseats-seats;
 		//  alert(a);
 		
-		if(a<="0" || seats=="0"){
+		if(a<"0" || seats=="0"){
 			$('#seats_error').text("There is only " +" "+availableseats+" "+ "seats available for your reservation");
 			$("#seats").css("background-color", "#FADBD8  ");
 		}
@@ -258,6 +266,9 @@ $(document).ready(function(){
 			$("#price").text('$'+ finalprice );
 			$('#numseats').text(seats);
 			$('#tot').text(price);
+			$("#seats").css("background-color", "#ABEBC6   ");
+			$("#numseats").css("background-color", "#ABEBC6   ");
+			$("#tot").css("background-color", "#ABEBC6 ");
 			
 		 }
 		
@@ -303,6 +314,37 @@ if (email.length == 0) {
 	$("#emai").focus();
 	x=1;
 	
+}
+var email=$("#email").val();
+	var pattern_email= /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+  
+if(pattern_email.test(email)){
+	
+	$("#email").css("background-color","#B8FAC6  ");
+	$("#email_error").hide();
+}
+else{
+	$("#email").css("background-color","#FCA2A2   ");
+	$("#email_error").html("please enter a valid email address");
+	$("#email_error").show();
+	 error_email=true;
+}
+var tel=$("#tel").val();
+var tellen=$("#tel").val().length;
+var pattern=/^[a-zA-Z]+( [a-zA-Z]+)*$/;
+var patternone=/^[a-zA-Z0-9]+( [a-zA-Z0-9]+)*$/;
+
+if( tellen<9 || pattern.test(tel)){
+	
+	 $("#tel").css("background-color","#FCA2A2");
+	$("#tel_error").html("please enter valid a telephone number");
+
+	$("#telephone_error_message").show();
+	x=1;
+}
+else{
+$("#tel").css("background-color","#B8FAC6  ");
+$("#tel_error").hide();
 }
 
 if(x==1){

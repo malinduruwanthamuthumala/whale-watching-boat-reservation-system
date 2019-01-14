@@ -7,7 +7,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Trip reports</h5>
-              <p class="card-text">generate monthly reports regarding trip details in pdf form</p>
+              <p class="card-text">Generate monthly reports regarding trip details in pdf form</p>
               
               
               <form action="{{action('PDFController@month')}}" class="form-group">
@@ -17,9 +17,9 @@
 
              
             <form action="/displymonth" class="form-group">
-              <h3>Year</h3>
+              <h5>Year</h5>
               <input type="" name="year" class="form-control">
-              <h3>Month</h3>
+              <h5>Month</h5>
                   <select name="month" id="" class="form-control">
                        <option value="1">january</option>
                        <option value="2">february</option>
@@ -46,7 +46,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Annual trip reports</h5>
-              <p class="card-text">generate annual reports regarding trip details in pdf form</p>
+              <p class="card-text">Generate annual reports regarding trip details in pdf form</p>
               <a href="/getPDF" class="btn btn-primary">Generate report</a>
               
             </div>
@@ -59,7 +59,7 @@
         <div class="col-md-6">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Trips from different Locations</h5>
+              <h5 class="card-title">Trips from different locations</h5>
              <a href="/displayPDFtrinco" class="btn btn-primary">Trincomalee</a>
              <a href="/displayPDFcolombo" class="btn btn-primary">Colombo</a>
              <a href="/displayPDFmirissaa" class="btn btn-primary">Mirissa</a>

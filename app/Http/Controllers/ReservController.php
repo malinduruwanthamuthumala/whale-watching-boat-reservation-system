@@ -7,7 +7,7 @@ use validator;
 use Calendar;
 use App\boats;
 use App\trips;
-
+use  Carbon\Carbon;
 class ReservController extends Controller
 {
     //
@@ -15,19 +15,20 @@ class ReservController extends Controller
         $events = [];
         $sheets=0;
         $status="ongoing";
-        
-        $data=trips::where('status', $status)->where('availableseats','>', $sheets)->get();
+        $date=carbon::today()->toDatestring();
+        $data=trips::where('status', $status)->where('availableseats','>', $sheets)->where('start_date','>=',$date)->get();
         if($data->count()) {
             foreach ($data as $key => $value) {
                 $events[] = Calendar::event(
                     $value->boatname,
+                    
                     true,
                     new \DateTime($value->start_date),
                     new \DateTime($value->end_date.' +1 day'),
                     null,
                     // Add color and link on event
 	                [
-	                    'color' => '#f05050',
+	                    'color' => 'red',
 	                    'url' => "/book/$value->reservationid",
 	                ]
                 );
@@ -38,7 +39,7 @@ class ReservController extends Controller
     }
  
     public function selectlocation(Request $request){
-       
+        $date=carbon::today()->toDatestring();
         $this->validate($request,[
             'btype'=>'required',
             'location'=>'required',
@@ -50,22 +51,23 @@ class ReservController extends Controller
         $location=$request->input('location');
         $events = [];
         if($location=='all'){
-            $data=trips::where('availableseats','>=', $sheets)->where('status', $status)->where('boattype',$type)->get();
+            $data=trips::where('availableseats','>=', $sheets)->where('status', $status)->where('boattype',$type)->where('start_date','>=',$date)->get();
         }else{
-            $data= trips::where('location',$location )->where('availableseats','>=', $sheets)->where('status', $status)->where('boattype',$type)->get();
+            $data= trips::where('location',$location )->where('availableseats','>=', $sheets)->where('status', $status)->where('boattype',$type)->where('start_date','>=',$date)->get();
         }
        
         if($data->count()) {
             foreach ($data as $key => $value) {
                 $events[] = Calendar::event(
                     $value->boatname,
+                    
                     true,
                     new \DateTime($value->start_date),
                     new \DateTime($value->end_date.' +1 day'),
                     null,
                     // Add color and link on event
 	                [
-	                    'color' => '#f05050',
+	                    'color' => 'red',
 	                    'url' => "/book/$value->reservationid",
 	                ]
                 );
@@ -82,7 +84,7 @@ class ReservController extends Controller
         $query = $request->get('query');
         if($query != '')
         {
-         $data = DB::table('invoices')
+         $data2 = DB::table('invoices')
            ->where('invoiceid', 'like', '%'.$query.'%')
            ->orWhere('reservationid', 'like', '%'.$query.'%')
            ->orWhere('fname', 'like', '%'.$query.'%')
@@ -90,6 +92,10 @@ class ReservController extends Controller
            ->orWhere('email', 'like', '%'.$query.'%')
            ->orderBy('boatid', 'desc')
            ->get();
+           $data1 = DB::table('boats')
+           ->where('governmentregno', 'like', '%'.$query.'%')
+           ->get();
+           $data=$data1+$data2;
            
         }
         else

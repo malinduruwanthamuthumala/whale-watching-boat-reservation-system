@@ -20,18 +20,18 @@
                    <table class="table">
                     <thead class="black white-text" >
                      <tr>
-                      <th>boatid</th>
-                      <th>governmentregno</th>
-                      <th>ownerid</th>
-                      <th>name</th>
-                      <th>location</th>
-                      <th>no of seats</th>
+                      <th>Boat Id</th>
+                      <th>Government Reg:No</th>
+                      <th>Owner ID</th>
+                      <th>Name</th>
+                      <th>Location</th>
+                      <th>No Of Seats</th>
                       <th>Telephone</th>
                       <th>Insured Passengers</th>
-                      <th>Insuarence company</th>
-                      <th>Reg No</th>
+                      <th>Insurence Company</th>
+                      <th>Reg:No</th>
                       <th>Bank </th>
-                      <th>Bank acc no</th>
+                      <th>Bank Acc No</th>
                      </tr>
                     </thead>
                     <tbody>

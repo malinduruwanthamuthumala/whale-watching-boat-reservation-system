@@ -29,10 +29,10 @@
            <thead class="black white-text">
              <tr>
 
-               <th scope="col">Payement Id</th>
+               <th scope="col">Payment ID</th>
                <th scope="col">Reservation ID</th>
                <th scope="col">Transfered Amount</th>
-               <th scope="col">Payed date</th>
+               <th scope="col">Paid Date</th>
               
                
                <th></th>

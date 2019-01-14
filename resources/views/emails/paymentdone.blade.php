@@ -17,10 +17,13 @@
         <header>
             <div class="row">
                 <div class="col">
-                    <a target="_blank" href="https://lobianijs.com">
+                    <a target="_blank" href="http://127.0.0.1:8000/">
                         <img src="img/waves.png" data-holder-rendered="true" />
                         </a>
+                        <a href="http://127.0.0.1:8000/status">You can suggest us improvements for our services or complain <br>
+                        we will definetelt take actions to improve your experience</a>
                 </div>
+
                 <div class="col company-details">
                     <h2 class="name">
                         <a target="_blank" href="/">

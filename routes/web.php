@@ -98,3 +98,13 @@ Route::get('/displymonth', 'PDFController@displymonth');
 // Route::get('/live_search/action', 'AdminController@action')->name('live_search.action');
 Route::get('/live/action','TripController@action')->name('live.action');
 Route::get('/search_history','TripController@search_history');
+Route::get('/status',function(){
+    return view('comment');
+
+
+}); 
+Route::get('sendmail','CommentsControlle@mail');
+Route::get('/show','CommentsControlle@show');
+Route::get('/user_details','AdminController@view_user');
+Route::get('/payement_details_admin','TripController@payement_details_admin');
+Route::get('/pay','TripController@pay');

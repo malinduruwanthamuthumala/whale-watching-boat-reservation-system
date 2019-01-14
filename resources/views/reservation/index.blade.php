@@ -52,20 +52,8 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="transport">Arrange Transport</a>
-                <a class="dropdown-item" href="hotel/show">Book hotels</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
+           
+           
             
             </ul>
            
@@ -107,14 +95,15 @@
 </div>
     {{-- navigation bar ends --}}
     {{-- calendar --}}
+    {!! $calendar->script() !!}
     <div style="margin-top:100px;margin-left:50px">
             <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <div class="panel panel-primary ">
-                                <div class="panel-heading">
-                                    choose a date from the following to start the reservation
-                                   Boat trips may not be available in certain days sorry for the inconvinence
+                                <div class="panel-heading" style="color:white;background-color:black">
+                                   <h5> Choose a date from the following to start the reservation.
+                                    Boat trips may not be available in certain days. Sorry for the inconvenience!</h5>
                                 </div>
                 
                                 <div class="panel-body text-white" style="background-color:white;opacity:0.8;color:white">
@@ -136,9 +125,9 @@
                             <label class="text-white">Select location</label>
                                 <select name="location" id="" class="form-control">
                                     <option value="all">ALL</option>
-                                    <option value="mirissa">mirissa</option>
-                                    <option value="colombo">colombo</option>
-                                    <option value="trincomalee">trincomalee</option>
+                                    <option value="mirissa">Mirissa</option>
+                                    <option value="colombo">Colombo</option>
+                                    <option value="trincomalee">Trincomalee</option>
                                     
                                 </select>
                                 
@@ -146,7 +135,7 @@
 							{{-- number of seats --}}
 							<label for="seats" id="laseats" class="text-white">Number of seats</label>
 							<div>
-                                <h5 id="error" style="color:red"></h5>
+                                <h5 id="error" style="color:white ;background-color:red"></h5>
 								<input type="text" name="seats" class="form-control" id="seats">
 								{!! $errors->first('seats','<p class="alert alert-danger">:message</p>')!!}
 							</div>
@@ -159,9 +148,9 @@
                                 <div>
                                 
                                         <select name="btype" id="select" class="form-control">
-                                                <option value="Normal">Normal Boat ride</option>
-                                                <option value="family">family boat ride</option>
-                                                <option value="luxury">luxury</option>
+                                                <option value="Normal">Normal Boat Ride</option>
+                                                <option value="family">Family Boat Ride</option>
+                                                <option value="luxury">Luxury Boat Ride</option>
                                                 
                                                 
                                             </select>
@@ -176,15 +165,16 @@
                            
                                     <input type="submit" class="btn btn-outline-warning" value="check for available trips" onClick="return empty()" id="check">
                            </form>
-                           <p id="note" style="color:brown"></p>
+                           <h5 id="note" style="color:white ;background-color:red"><b></b></h5> 
                         </div>
+                        
                     </div>
                   
                 </div>
     </div>
 
 
-    {!! $calendar->script() !!}
+  
     <script>
         $(document).ready(function(){
     
@@ -193,7 +183,7 @@
    $('#select').change(function(){
       var type=$('#select').val();
       if(type=='family'){
-          $('#note').text('If you are choosing a family boat you wil have to reserve the whole boat')
+          $('#note').text('If you are choosing a family boat you will have to reserve the whole boat of 10 seats')
          
         //   $("#seats").attr('disabled','disabled');
           $("#seats").val('1');

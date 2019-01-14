@@ -14,7 +14,7 @@
               <thead class="black white-text">
                 <tr>
                   <th scope="col">Boat Name</th>
-                  <th scope="col">Available seats</th>
+                  <th scope="col">Available Seats</th>
                   <th scope="col">Reserved Seats</th>
                   <th scope="col">Trip Date</th>
                   <th scope="col">Location</th>

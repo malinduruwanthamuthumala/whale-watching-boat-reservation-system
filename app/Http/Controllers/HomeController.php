@@ -30,7 +30,7 @@ class HomeController extends Controller
             $fname=auth()->user()->fname;
             $lname=auth()->user()->lname;
             $email=auth()->user()->email;
-            $boats = Boats::where('ownerid',$id)->get();
+            $boats = Boats::where('ownerid',$id)->where('status','confirmed')->get();
       
              if($boats==null){
                  return view('boats.create');
@@ -39,10 +39,12 @@ class HomeController extends Controller
                  return view('boatownerfunctions.index')->with('boats',$boats);
              }
          
-         }
-         elseif($usertype=='admin'){
-             $name=auth()->user()->id;
-             return view('adminfunctions.index');
+            }
+            elseif($usertype=='admin'){
+                $name=auth()->user()->id;
+               $boats=boats::where('status','waiting')->get();
+                 $wordCount = count($boats);
+                return view('adminfunctions.index')->with('wordCount',$wordCount);
              
          }
      
@@ -59,8 +61,7 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        $boats = boats::all();
-       
-        return view('boats.edit')->with('boats', $boats);
+    $boats = boats::all();
+    return view('boats.edit')->with('boats', $boats);
     }
 }

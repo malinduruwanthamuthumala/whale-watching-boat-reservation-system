@@ -6,14 +6,14 @@
                <thead class="black white-text">
                  <tr>
                    <th scope="col">Reservation ID</th>
-                   <th>boatid</th>
-                   <th>start_date</th>
-                   <th>	end_date</th>
-                   <th>location</th>
-                   <th>startingtime</th>
-                   <th>boatname</th>
-                   <th>	owner id</th>
-                   <th>status</th>
+                   <th>Boat Id</th>
+                   <th>Start Date</th>
+                   <th>	End Date</th>
+                   <th>Location</th>
+                   <th>Starting Time</th>
+                   <th>Boat name</th>
+                   <th>	Owner ID</th>
+                   <th>Status</th>
                   
                   
                    <th></th>

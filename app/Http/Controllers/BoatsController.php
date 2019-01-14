@@ -13,7 +13,6 @@ class BoatsController extends Controller
     public function index()
     { 
         $boats = boats::all();
-       
         return view('boats.index')->with('boats', $boats);
     }
     /**
@@ -34,7 +33,7 @@ class BoatsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-        'name'=>'required',
+        'fname'=>'required',
         'regno'=>'required',
         'btype'=>'required',
         'location'=>'required',
@@ -52,8 +51,8 @@ class BoatsController extends Controller
           
        ]);
 
-      $boats = new boats;
-         $boats->name=$request->input('name');
+         $boats = new boats;
+         $boats->name=$request->input('fname');
          $boats->governmentregno =$request->input('regno');
          $boats->boattype =$request->input('btype');
          $boats->location=$request->input('location');
@@ -79,9 +78,7 @@ class BoatsController extends Controller
      {
         
          $id=auth()->user()->id;
-        
-        $boats = Boats::where('ownerid',$id)->get();
-        
+         $boats = Boats::where('ownerid',$id)->get();
          return view('userprof.boat')->with('home',$boats);
      }
      /**
@@ -94,8 +91,7 @@ class BoatsController extends Controller
      {
         
          $name=auth()->user()->id;
-       $boats = Boats::find($id);
-       
+         $boats = Boats::find($id);
          return view('boatownerfunctions.edit')->with('boats', $boats);
      }
      /**
@@ -126,8 +122,8 @@ class BoatsController extends Controller
                 
               
            ]);
-            $id=$request->input('id');
-          $boats =boats::find($id);
+             $id=$request->input('id');
+             $boats =boats::find($id);
              $boats->name=$request->input('fname');
              $boats->governmentregno =$request->input('regno');
              $boats->boattype =$request->input('btype');
@@ -153,7 +149,6 @@ class BoatsController extends Controller
         $lname=auth()->user()->lname;
         $email=auth()->user()->email;
         $boats = Boats::where('ownerid',$id)->where('status','confirmed')->get();
-        
         return view('boatownerfunctions.boatdelete')->with('boats',$boats);
 
     }
@@ -171,4 +166,3 @@ class BoatsController extends Controller
        return redirect('/deleteboat')->with('success','Boat removed');
     }
 }
- 
